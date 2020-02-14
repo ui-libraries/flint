@@ -1,0 +1,40 @@
+#!/bin/bash
+##PBS -V
+#PBS -l nodes=1:ppn=1,walltime=160:00:00
+##PBS -l partition=beacon
+#PBS -l advres=condo-staff.13774103
+#PBS -A ACF-STA0006
+#PBS -l qos=staff
+#PBS -N mongodb
+#PBS -o log/$PBS_JOBNAME-o$PBS_JOBID
+#PBS -e log/$PBS_JOBNAME-e$PBS_JOBID
+
+
+cd $PBS_O_WORKDIR
+
+module load pymongo
+module load mongodb
+
+mongod --dbpath=./data &
+
+until mongo --eval "print(\"waited for connection\")"
+do
+    sleep 3s
+done
+
+echo "started at " `date`
+
+declare -i npdfdir
+npdfdir=0
+
+#for pdfsplit in split.dir.deq09.pdf
+for pdfsplit in *
+do
+    if [ -d "$pdfsplit" ] && [[ "$pdfsplit" == "split"* ]]; then
+	npdfdir++
+    fi
+done
+
+echo "# of pdf files: ", $npdfdir
+
+echo "completed! at " `date`

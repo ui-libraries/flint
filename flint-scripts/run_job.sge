@@ -1,0 +1,18 @@
+#!/bin/bash
+##PBS -V
+#PBS -l nodes=1:ppn=1,walltime=16:00:00
+##PBS -l partition=beacon
+#PBS -l advres=condo-staff.13772923
+#PBS -A ACF-STA0001
+#PBS -l qos=staff
+#PBS -N deq07.pdf
+
+cd $PBS_O_WORKDIR
+
+module load anaconda2/4.4.0 pdftk
+module load tesseract
+
+for pdf in deq07.pdf
+do
+/usr/bin/time -f "%e" sh /lustre/haven/proj/STA0001/junwenli/louise/tools-test/splitpdf2txt.sh  ${pdf} >& log.${pdf} 
+done

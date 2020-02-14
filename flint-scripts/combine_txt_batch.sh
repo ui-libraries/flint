@@ -1,0 +1,43 @@
+#!/bin/bash
+
+WORKDIR=$1
+for pdfsplit in $WORKDIR
+do
+    if [ -d "$pdfsplit" ] && [[ "$pdfsplit" == "split"* ]]; then
+
+        echo $pdfsplit
+
+        cd $pdfsplit
+
+        for txtdir in *; do
+
+           if [ -d "$txtdir" ]; then
+         
+               echo " ---- " $txtdir 
+
+               cd $txtdir
+	       
+	       rm txt.total
+               touch txt.total
+
+	       declare -i pdfpageno=1
+               for txt in `ls *.txt -1 | sort -t'_' -n -k1`; do
+                   echo "        ++ " $txt
+		   
+		   echo "PDF_PAGE_NO : " $pdfpageno >> txt.total
+		   		   
+                   cat $txt >> txt.total
+
+		   pdfpageno=$pdfpageno+1
+               done
+
+               cd ..
+
+           fi
+
+        done
+        
+        cd ..
+
+    fi
+done
