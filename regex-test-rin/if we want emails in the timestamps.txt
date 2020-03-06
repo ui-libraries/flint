@@ -1,0 +1,23 @@
+'on weekday, month day, year at hours:mins AMorPM, LastName, FirstName (ORG) <email@client.xxx> wrote:':'\\b[a-z]+\s+[A-Za-z]+\,\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\<\[A-Za-z]+\@\[a-z]+\.[a-z]+\>\s+\[a-z]+\:\\b',
+'on weekday, month day, year at hours:mins AMorPM, LastName, FirstName <email@client.xxx> wrote:':'\\b[a-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\<\[A-Za-z]+\@\[a-z]+\.[a-z]+\>\s+\[a-z]+\:\\b',
+'on month day, year, at hours:mins AMorPM, FirstName LastName <email@client.xxx> wrote:':'\\b[a-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\s+\[A-Za-z]+\s+[A-Za-z]+\s+\<\[A-Za-z]+\@\[a-z]+\.\[a-z]+\>\s+[a-z]+\:'
+
+
+
+
+
+'\\b[a-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\\b'
+
+
+\(([^)]+)\)
+
+
+\\b[a-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\(([^)]+)\)\s+\<[A-Za-z]+\@[a-z]+\.[a-z]+\>\s+[a-z]+\:',
+
+
+
+
+
+'on weekday, month day, year at hours:mins AMorPM':'\\b[a-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\\b',
+'on weekday, month day, year at hours:mins AMorPM, LastName, FirstName <email@client.xxx> wrote:':'\\b[a-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\<[A-Za-z]+\@[a-z]+\.[a-z]+\>\s+[a-z]+\:',
+'on month day, year, at hours:mins AMorPM, FirstName LastName <email@client.xxx> wrote:':'\\b[a-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\<[A-Za-z]+\@[a-z]+\.[a-z]+\>\s+[a-z]+\:'}
