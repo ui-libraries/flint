@@ -72,4 +72,6 @@ DateTimeRegex = {'weekday month yearOrday yearORday hours:mins AMorPM':'\\b[A-Za
 'month day hours:mins year':'\\b[A-Za-z]+\s+\d+\s+\d+\:\d+\s+\d+\\b',
 'month day hours:mins':'\\b[A-Za-z]+\s+\d+\s+\d+\:\d+\\b',
 'month day year hours:mins AMorPM':'\\b[A-Za-z]+\s+\d+\s+\d+\s+\d+\:\d+\s+[A-Za-z]+\\b',
-'month day year hours:mins':'\\b[A-Za-z]+\s+\d+\s+\d+\s+\d+\:\d+\\b'}
+'month day year hours:mins':'\\b[A-Za-z]+\s+\d+\s+\d+\s+\d+\:\d+\\b',
+'on weekday, month day, year at hours:mins AMorPM':'\\b[a-z]+\s+[A-Za-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\\b',
+'on month day, year, at hours:mins AMorPM':'\\b[a-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\\b'}
