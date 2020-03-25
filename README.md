@@ -2,7 +2,7 @@
 
 documentation
 Flint Email Project Documentation/Readme
-Louise Seamster, 3/18/20 
+Louise Seamster, 3/18/20 (not yet complete)
 
 This project was conceptualized in 2016, was the subject of an Applied Research class in Fall 2017 and received some computational assistance in 2018-2019 at the University of Tennessee before becoming a collaborative project with the University of Iowa’s Digital Scholarship and Publishing Lab in Fall 2019. Below is technical information about the data and data management.
 
