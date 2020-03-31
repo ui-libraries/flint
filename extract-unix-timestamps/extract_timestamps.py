@@ -112,7 +112,7 @@ def DateTimeExtractor(x):
     DT = re.findall(reg,x)
     return(DT)
 
-filenames_path = "filenames-subset.txt"
+filenames_path = "filenames.txt"
 #filenames_path = "filenames.txt"
 s3_root = "https://flint-text.s3.amazonaws.com/"
 
@@ -141,7 +141,7 @@ for line in lines:
         "unix_timestamps": unix_stamps
     }
     obj = json.dumps(data)
-    f = open('timestamp_test.txt','a+')
+    f = open('flint-timestamps.json','a+')
     f.write(obj + ',') #delete the final comma from final text file
     f.close()
 
