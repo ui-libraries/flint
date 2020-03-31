@@ -126,6 +126,8 @@ def toUnixTime(time_list):
 with open(filenames_path) as fp:
     lines = [line.rstrip('\n') for line in fp]
 
+start_time = int(time.time())
+
 for line in lines:       
     url = s3_root + line
     response = request.urlopen(url)
@@ -143,7 +145,10 @@ for line in lines:
     f.write(obj + ',') #delete the final comma from final text file
     f.close()
 
-print("finished")
+stop_time = int(time.time())
+duration = str(stop_time - start_time)
+
+print("finished in " + duration + " seconds")
 
 
 
