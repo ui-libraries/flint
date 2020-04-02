@@ -10,6 +10,12 @@ import time
 import datetime
 #pip3 install python-dateutil
 import dateutil.parser
+import sys
+
+if len(sys.argv) > 1:
+    pdf = str(sys.argv[1])
+else:
+    pdf = ""
 
 DateTimeRegex = {
                 'weekday month yearOrday yearORday hours:mins AMorPM':'\\b[A-Za-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+\d+\:\d+\s+[A-Z]+\\b',
@@ -119,12 +125,21 @@ s3_root = "https://flint-text.s3.amazonaws.com/"
 def toUnixTime(time_list):
     new_list = []
     for t in time_list:
-        unixtime = dateutil.parser.parse(t).timestamp()
-        new_list.append(unixtime)    
+        try:
+            unixtime = dateutil.parser.parse(t).timestamp()
+            new_list.append(unixtime)
+        except Exception:
+            pass  
     return new_list
 
+lines = []
+
 with open(filenames_path) as fp:
-    lines = [line.rstrip('\n') for line in fp]
+    all_lines = [line.rstrip('\n') for line in fp]
+
+for l in all_lines:
+    if re.match(pdf, l):
+        lines.append(l)
 
 start_time = int(time.time())
 
@@ -133,7 +148,7 @@ for line in lines:
     response = request.urlopen(url)
     raw_text = response.read().decode('utf8')
     stamps = DateTimeExtractor(raw_text)
-    print(stamps)
+    print(line)
     unix_stamps = toUnixTime(stamps)
     data = {
         "filename": line,
@@ -141,7 +156,7 @@ for line in lines:
         "unix_timestamps": unix_stamps
     }
     obj = json.dumps(data)
-    f = open('flint-timestamps.json','a+')
+    f = open(pdf + '-timestamps.json','a+')
     f.write(obj + ',') #delete the final comma from final text file
     f.close()
 
