@@ -97,6 +97,22 @@ DateTimeRegex = {
                 'on month day, year, at hours:mins AMorPM':'\\b[a-z]+\s+[A-Za-z]+\s+\d+\s+\d+\s+[a-z]+\s+\d+\:\d+\s+[A-Za-z]+\\b'
                 }
 
+def extractSenders(text):
+    senders = []
+    froms = re.findall("From:.*", text)
+    for f in froms:
+        s = re.sub("From: ","", f)
+        senders.append(s)
+    return senders
+
+def extractReceivers(text):
+    receivers = []
+    tos = re.findall("To:.*", text)
+    for t in tos:
+        s = re.sub("To: ","", t)
+        receivers.append(s)
+    return receivers
+
 def preprocess(x):
     x = x.replace('\t',' ')
     x = x.replace('\n',' ')
@@ -148,12 +164,16 @@ for line in lines:
     response = request.urlopen(url)
     raw_text = response.read().decode('utf8')
     stamps = DateTimeExtractor(raw_text)
-    print(line)
+    receivers = extractReceivers(raw_text)
+    senders = extractSenders(raw_text)
+    print(senders)
     unix_stamps = toUnixTime(stamps)
     data = {
         "filename": line,
         "original_timestamps": stamps,
-        "unix_timestamps": unix_stamps
+        "unix_timestamps": unix_stamps,
+        "senders": senders,
+        "receivers": receivers
     }
     obj = json.dumps(data)
     f = open(pdf + '-timestamps.json','a+')
