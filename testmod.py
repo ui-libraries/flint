@@ -1,5 +1,6 @@
+import re
+
 def findsenders(emailstext):
-    import re
     
     #From:
     froms = re.findall("From:.*[A-Za-z].*", emailstext)
@@ -63,7 +64,6 @@ def findsenders(emailstext):
     print(ultimatelist)
     
 def findrecievers(emailstext):
-    import re
     
     #To:
     tos = re.findall("To:.*[A-Za-z].*", emailstext)
