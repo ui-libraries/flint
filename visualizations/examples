@@ -1,0 +1,15 @@
+D3 examples
+
+Calendar
+https://observablehq.com/@d3/calendar-view
+
+Searchable table
+http://bl.ocks.org/dhoboy/1ac430a7ca883e7a8c09
+
+Network graph
+https://observablehq.com/@d3/force-directed-graph
+
+These work for those larger sections of the visualization tree.
+If we structure the calendar this way, I don't think we need the specific year view I had in the original mock-up.
+This strucuture will provide all of that detail and exapnd the view we can work with.
+
