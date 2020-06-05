@@ -231,7 +231,7 @@ var filling = [	{
     "senders": [
       "Workman, Wayne (TREASURY)",
       "Byrne, Randall (Treasury)",
-      "Natasha Henderson [mailto:nhenderson@®citvofflint.com]",
+      "Natasha Henderson [mailto:nhenderson@Â®citvofflint.com]",
       "\"Sean Kammer\" [skammer@cityofflint.com]"
     ],
     "receivers": [
@@ -289,7 +289,7 @@ var filling = [	{
       "Muchmore, Dennis (GOV)",
       "Workman, Wayne (TREASURY)",
       "Byrne, Randall (Treasury)",
-      "Natasha Henderson [mazilto:nhenderson®cityofflint.com]"
+      "Natasha Henderson [mazilto:nhendersonÂ®cityofflint.com]"
     ],
     "receivers": [
       "Workman, Wayne (TREASURY);Khouri, Nick (TREASURY);Saxton, Thomas",
@@ -359,7 +359,7 @@ var filling = [	{
     ],
     "receivers": [
       "Krisztian, George (DEQ);Averill, James (MDARD)",
-      "\"Jennifer (Quimby) Holton\" [holtoni®michigan.gow]",
+      "\"Jennifer (Quimby) Holton\" [holtoniÂ®michigan.gow]",
       "MSUEEVERYONE@LIST.MSU.EDU"
     ]
   },
@@ -386,7 +386,7 @@ var filling = [	{
     ],
     "receivers": [
       "Wurfel, Brad (DEQ)",
-      "\"Jennifer (Quimby) Holton\" [hoitoni®@michigan.gov]"
+      "\"Jennifer (Quimby) Holton\" [hoitoniÂ®@michigan.gov]"
     ]
   },
   {
@@ -823,7 +823,7 @@ var filling = [	{
     "receivers": [
       "Wurfel, Brad (DEQ)",
       "Macaluso, Nora [nmacaluso@bna.com]",
-      "Angela Wittrock [AWitirock@®sanate.michigan.gov]"
+      "Angela Wittrock [AWitirock@Â®sanate.michigan.gov]"
     ]
   },
   {
@@ -851,7 +851,7 @@ var filling = [	{
       1451334600
     ],
     "senders": [
-      "Danielle Emerson [mailto:demerson@®gongwer.com]"
+      "Danielle Emerson [mailto:demerson@Â®gongwer.com]"
     ],
     "receivers": [
       "Murray, David (GOV)",
@@ -1086,7 +1086,7 @@ var filling = [	{
     ],
     "receivers": [
       "Wurfel, Brad (DEQ);Stanton, Terry A. (Treasury);Sampson, Jeremy (TREASURY);Lasher,",
-      "'Ronald Fonger' [RFONGER1®@miive.com]",
+      "'Ronald Fonger' [RFONGER1Â®@miive.com]",
       "Wurfel, Sara (GOV) [Wurfels@michigan.gov]"
     ]
   },
