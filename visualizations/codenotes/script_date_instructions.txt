@@ -1,0 +1,13 @@
+Converting UNIX timestamps to Y-m-d
+
+In order to be read dates in openair, the dates in our set must be converted to Y-m-d format.
+
+The Python script follows these steps:
+
+> from datetime import datetime
+> strings = ("dates", "dates")
+> for string in strings:
+    objti = int(string)
+    print(datetime.utcfromtimestamp(objti).strftime('%Y-%m-%d'))
+> print(datetime.utcfromtimestamp(objti).strftime('%Y-%m-%d %H:%M:%S'))
+

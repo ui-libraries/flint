@@ -1,0 +1,42 @@
+Calendar heatmap instructions using R Studio
+
+Packages needed:
+DT
+openair
+htmlwidgets
+
+Step 1: changing over data
+- The data we are dealing with here is timestamps ONLY - sometimes openair gets confused when there are other properties in the data.
+- It is best if the data is changed from UNIX to a Y-m-d format in order for openair to map it properly.
+- This conversion can be done using Python.
+- Make sure that the resulting converted list of timestamps is saved as a .csv file. 
+
+Step 2: import the data
+> calData = read.csv("file/path")
+*** If you copy the file path from your file explorer, make sure to change the direction of the slash mark otherwise you will get an error 
+"C:\Users\abbyk\Documents\2004_yesdupes.jpeg" -> "C:/Users/abbyk/Documents/2004_yesdupes.jpeg"
+
+Step 3: generate a frequency table
+> calData2 = table(calData)
+
+Step 4: make this into a data frame
+> calDataFr = data.table(
+	date = as.Date(calData2$calData)
+	Freqk = calData2$Freq
+	)
+
+I use Freqk for the naming scheme because then R won't confuse it with any of the frequency related functions it has. You can use whatever you want though.
+** It is imperative to make sure the dates are being read as dates. You can check by looking at the named variable and seeing how the rows are being read. **
+
+Step 5: make the calendar
+> calendarPlot(calDataFr, pollutant = "Freqk", year = [desired_year])
+
+This will produce a calendar plot. It might looked squished in the viewing window, if so just zoom in.
+
+If you would like to export the plot as HTML instead of as a jpeg, use the htmlwidgets package.
+
+> CAL2015 = calendarPlot(calDataFr, pollutant = "Freqk", year = 2015)
+> saveWidget(CAL2015, file = "CAL2015.html")
+
+It will save the .html file to the folder you have R exporting to.
+

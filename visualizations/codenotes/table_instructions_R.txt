@@ -1,0 +1,18 @@
+Instructions for creating searchable datatables in R
+
+Packages needed
+DT
+htmlwidgets
+
+Step 1: import the data
+> tableData = read.csv("file/path")
+
+Step 2: create the table
+> datatable(tableData, filter = "top", rownames = FALSE)
+
+Step 3: create the widget
+If you want to make the table into a widget, just name it and then use the saveWidget function.
+> TableOut = datatable(tableData, filter = "top", rownames = FALSE)
+> saveWidget(TableOut, file = "TableOut.html")
+
+These tables are crazy easy to make with the DT package. Just make sure you name your tables something clear so you know which ones are which.
