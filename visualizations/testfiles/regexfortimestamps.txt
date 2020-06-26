@@ -1,0 +1,93 @@
+deq19_b4_306_721_21.txt didn't catch date {good}
+
+
+deq18_b1_1_3746_1264.txt caught BOTH dates with weekdays {great}
+
+
+yearORday/month/yearORday:hours:mins AMorPM
+
+\\b\d+\/[A-Za-z]+\d+\:\d+\:\d+\s+[A-Za-z]+\\b
+
+yearORday/month/yearORday:hours:mins
+
+\\b\d+\/[A-Za-z]+\/\d+\:\d+\:\d+\\b
+
+yearORday-month-yearORday:hours:mins AMorPM
+
+\\b\d+\-[A-Za-z]+\-\d+\:\d+\:\d+\s+[A-Za-z]+\\b
+
+yearORday-month-yearORday:hours:mins
+
+\\b\d+\-[A-Za-z]+\-\d+\:\d+\:\d+\\b
+
+month-yearORday-yearORday:hours:mins AMorPM
+
+\\b[A-Za-z]+\-\d+\-\d+\:\d+\:\d+\s+[A-Za-z]+\\b
+
+month-yearORday-yearORday:hours:mins
+
+\\b[A-Za-z]+\-\d+\-\d+\:\d+\:\d+\\b
+
+month/yearORday/yearORday:hours:mins AMorPM
+
+\\b[A-Za-z]+\/\d+\/\d+\:\d+\:\d+\s+[A-Za-z]+\\b
+
+month/yearORday/yearORday:hours:mins
+
+\\b[A-Za-z]+\/\d+\/\d+\:\d+\:\d+\\b
+
+yearORday/month/yearORday hours:mins AMorPM
+
+\\b\d+\/[A-Za-z]+\/\d+\s+\d+\:\d+\s+[A-Za-z]+\\b
+
+yearORday/month/yearORday hours:mins
+
+\\b\d+\/[A-Za-z]+\/\d+\s+\d+\:\d+\\b
+
+yearORday-month-yearORday hours:mins AMorPM
+
+\\b\d+\-[A-Za-z]+\-\d+\s+\d+\:\d+\s+[A-Za-z]+\\b
+
+yearORday-month-yearORday hours:mins
+
+\\b\d+\-[A-Za-z]+\-\d+\s+\d+\:\d+\\b
+
+month/yearORday/yearORday hours:mins AMorPM
+
+\\b[A-Za-z]\/\d+\/\d+\s+\d+\:\d+\s+[A-Za-z]+\\b
+
+month/yearORday/yearORday hours:mins
+
+\\b[A-Za-z]\/\d+\/\d+\s+\d+\:\d+\\b
+
+month-yearORday-yearORday hours:mins AMorPM
+
+\\b[A-Za-z]+\-\d+\-\d+\s+\d+\:\d+\s+[A-Za-z]+\\b
+
+month-yearORday-yearORday hours:mins
+
+\\b[A-Za-z]+\-\d+\-\d+\s+\d+\:\d+\\b
+
+year month day hours:mins
+
+\\b\d+\s+[A-Za-z]+\s+\d+\s+\d+\:\d+\\b
+
+month day hours:mins year
+
+\\b[A-Za-z]+\s+\d+\s+\d+\:\d+\s+\d+\\b
+
+month day hours:mins
+
+\\b[A-Za-z]+\s+\d+\s+\d+\:\d+\\b
+
+month day year hours:mins AMorPM
+
+\\b[A-Za-z]+\s+\d+\s+\d+\s+\d+\:\d+\s+[A-Za-z]+\\b
+
+month day year hours:mins
+
+\\b[A-Za-z]+\s+\d+\s+\d+\s+\d+\:\d+\\b
+
+
+
+topics modeling
