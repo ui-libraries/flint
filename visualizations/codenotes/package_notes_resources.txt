@@ -1,0 +1,29 @@
+R Package Resources
+
+openair
+https://cran.r-project.org/web/packages/openair/index.html
+https://davidcarslaw.github.io/openair/
+
+This package isn't really designed with the intent to display the data we are trying to display, which is why it is
+important for the frequency data to be generated in R. I played with the idea of using D3 to make a heatmap for a while,
+and also tried using a few other packages and some ggplot2 methods, but these proved more difficult and required an
+extensive restructuring of the data. Openair proved to be the smoothest possible transition from JSON to heatmap, in that
+it already had a base calendar format. The only catch is the date format must be Y-m-d, so the conversion from UNIX
+is mandatory. The frequency data here serves as the pollutant, which could serve to create some confusion in the future,
+but in all generated tests thus far the output has been true to the dataset.
+
+Openair takes more arguments than my code uses, so further customization of the output is possible. Until the final version
+of the calendars is created, however, the default is clean enough to serve its purpose. While not the most customizable
+calendar, and lacking things like tooltip or zoom capability, the openair package packs the most value in only a few lines
+of code. What will be needed in the future is a method for layering functionality over top of the output.
+
+
+DT
+https://www.rdocumentation.org/packages/DT/versions/0.13
+https://rstudio.github.io/DT/
+https://cran.r-project.org/web/packages/DT/index.html
+
+This package is incredibly straightforward and customizable. Of all the searchable tables I have created using R, this one
+is easily the most efficient and easy to understand. While D3 might prove itself more efficient once the database is active
+for creating another searchable table, DT could still prove useful and functional for creating tables as well because it is
+so highly customizable. These kinds of decisions will need to be made after the database is created.
