@@ -93,14 +93,25 @@ Paragraph on the project taken from AHI etc
 
 ### Appendix A: Department acronyms
 DEQ: Department of Environmental Quality
+
 DHHS: Department of Health and Human Services
+
 DNR: Department of Natural Resources
+
 DOC
+
 DTMB: Department of Transportation, Management and Budget
+
 LARA
+
 MSP: Michigan State Police
+
 Michigan Civil Service Commission
+
 TED
+
 TIA
+
 Treasury
+
 Kevyn Orr and DWSD: this file is from Detroit’s emergency manager, Kevyn Orr, and DWSD is Detroit Water and Sewer Department (Flint’s prior water source)
