@@ -45,8 +45,8 @@
               <input type="text" class="form-control" id="subject" name="subject">
             </div>
             <div class="form-group">
-              <label for="header">Header:</label>
-              <input type="text" class="form-control" id="header" name="header">
+              <label for="email_id">Email ID:</label>
+              <input type="text" class="form-control" id="email_id" name="email_id">
             </div>
             <div class="form-group">
               <label for="pages">Pages:</label>
@@ -63,29 +63,55 @@
               <input type="text" class="form-control" id="cc" name="cc">
             </div>
             <div class="form-group">
-              <label for="timestamp">Timestamp:</label>
-              <input type="text" class="form-control" id="timestamp" name="timestamp">
-            </div>
-            <div class="form-group">
               <label for="bookmark">Bookmark:</label>
               <input type="text" class="form-control" id="bookmark" name="bookmark">
             </div>
+            <!-- create a dropdown of values for pdf using -->
             <div class="form-group">
               <label for="pdf">PDF:</label>
-              <input type="text" class="form-control" id="pdf" name="pdf">
+              <select class="form-control" id="pdf" name="pdf">
+                <option value="">Select a PDF</option>
+                <option value="Treasury02">Treasury02</option>
+                <option value="DHHS03">DHHS03</option>
+                <option value="DHHS02">DHHS02</option>
+                <option value="DHHS01">DHHS01</option>
+                <option value="deq28">deq28</option>
+                <option value="deq27">deq27</option>
+                <option value="deq26">deq26</option>
+                <option value="deq25">deq25</option>
+                <option value="deq24">deq24</option>
+                <option value="deq21">deq21</option>
+                <option value="deq19">deq19</option>
+                <option value="deq18">deq18</option>
+                <option value="deq17">deq17</option>
+                <option value="deq16">deq16</option>
+                <option value="deq15">deq15</option>
+                <option value="deq14">deq14</option>
+                <option value="deq12">deq12</option>
+                <option value="deq11">deq11</option>
+                <option value="deq09">deq09</option>
+                <option value="deq04">deq04</option>
+                <option value="deq03">deq03</option>
+                <option value="deq02">deq02</option>
+                <option value="deq01">deq01</option>
+              </select>
+              </div>
+            <div class="form-group">
+              <label for="datestart">Date start (YYYY-MM-DD):</label>
+              <input type="text" class="form-control" id="datestart" name="datestart">
             </div>
           </div>
           <div class="col">
             <div class="form-group">
-              <label for="bm_title">BM Title:</label>
+              <label for="bm_title">Bookmark title:</label>
               <input type="text" class="form-control" id="bm_title" name="bm_title">
             </div>
             <div class="form-group">
-              <label for="acode">ACode:</label>
+              <label for="acode">Page duplicates (A code):</label>
               <input type="text" class="form-control" id="acode" name="acode">
             </div>
             <div class="form-group">
-              <label for="bcode">BCode:</label>
+              <label for="bcode">Email duplicates (b code):</label>
               <input type="text" class="form-control" id="bcode" name="bcode">
             </div>
             <div class="form-group">
@@ -93,8 +119,8 @@
               <input type="text" class="form-control" id="email_order" name="email_order">
             </div>
             <div class="form-group">
-              <label for="email_id">Email ID:</label>
-              <input type="text" class="form-control" id="email_id" name="email_id">
+              <label for="dateend">Date end (YYYY-MM-DD):</label>
+              <input type="text" class="form-control" id="dateend" name="dateend">
             </div>
           </div>
       </div><!--End of row-->
@@ -102,11 +128,8 @@
         <label for="full_email">Has the words:</label>
         <input type="text" class="form-control" id="full_email" name="full_email">
       </div>
-
-
-
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
     </form> 
 ​
 ​
@@ -114,5 +137,30 @@
     <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+      // add jquery listener to submit button
+      $('#submit').click(function() {
+        // get the date inputs
+        var datestart = $('#datestart').val()
+        var dateend = $('#dateend').val()
+        // convert the dates to unix timestamps
+        var datestart = convertDateToUnix(datestart)
+        var dateend = convertDateToUnix(dateend)
+        // if the dateend is less than the datestart, alert the user
+        if (dateend < datestart) {
+          alert('The end date must be greater than the start date.')
+          return false
+        }
+        // change the date inputs to the unix timestamps
+        $('#datestart').val(datestart)
+        $('#dateend').val(dateend)
+      })
+      
+      // convert YYYY-MM-DD to unix timestamp
+      function convertDateToUnix(date) {
+        var date = new Date(date)
+        return date.getTime() / 1000
+      }
+    </script>
   </body>
 </html>

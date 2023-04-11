@@ -1,7 +1,7 @@
 <?php
 // Connect to the database
 $servername = "localhost";
-$username = "";
+$username = "flint_user";
 $password = "";
 $dbname = "flint";
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,7 +17,8 @@ $email_to = $_POST['email_to'];
 $subject = $_POST['subject'];
 $attachments = $_POST['attachments'];
 $cc = $_POST['cc'];
-$timestamp = $_POST['timestamp'];
+$datestart = $_POST['datestart'];
+$dateend = $_POST['dateend'];
 $email_order = $_POST['email_order'];
 $full_email = $_POST['full_email'];
 $header = $_POST['header'];
@@ -46,8 +47,11 @@ if ($attachments != '') {
 if ($cc != '') {
   $sql .= " AND cc LIKE '%$cc%'";
 }
-if ($timestamp != '') {
-  $sql .= " AND timestamp LIKE '%$timestamp%'";
+if ($datestart != '') {
+  $sql .= " AND timestamp >= '$datestart'";
+}
+if ($dateend != '') {
+  $sql .= " AND timestamp <= '$dateend'";
 }
 if ($email_order != '') {
   $sql .= " AND email_order LIKE '%$email_order%'";
@@ -85,13 +89,16 @@ $result = $conn->query($sql);
 
 // Display the results
 if ($result->num_rows > 0) {
+  echo "<strong>Results:</strong> " . $result->num_rows . "<br><br>";
   while($row = $result->fetch_assoc()) {
+    // convert $row["timestamp"] from unix to a date
+    $date = date("m/d/Y", $row["timestamp"]);    
     echo "<strong>Sender:</strong> " . $row["sender"] . "<br>";
     echo "<strong>Email To:</strong> " . $row["email_to"] . "<br>";
     echo "<strong>Subject:</strong> " . $row["subject"] . "<br>";
     echo "<strong>Attachments:</strong> " . $row["attachments"] . "<br>";
     echo "<strong>CC:</strong> " . $row["cc"] . "<br>";
-    echo "<strong>Timestamp:</strong> " . $row["timestamp"] . "<br>";
+    echo "<strong>Timestamp:</strong> " . $date . "<br>";
     echo "<strong>Email Order:</strong> " . $row["email_order"] . "<br>";
     echo "<strong>Full Email:</strong> " . $row["full_email"] . "<br>";
     echo "<strong>Header:</strong> " . $row["header"] . "<br>";
