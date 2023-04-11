@@ -1,213 +1,213 @@
 body {
-        color: #222;
-        margin: 0;
-        padding: 0;
-        font-family: 'Quicksand', sans-serif;
-        background: #fafaf8;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Merriweather', serif;
-    }
-    
-    a {
-        color: #337ab7;
-    }
-    
-    a:hover {
-        color: #337ab7;
-    }
-    
-    .project-summary p a, .project-body p a {
-        text-decoration: underline;
-    }
-    
-    .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-        background-color: #337ab7;
-    }
-    
-    .social-icons a:hover {
-        color: #337ab7;
-    }
-    
-    .label-default {
-        background-color: #445;
-    }
-    
-    .label-warning {
-        background-color: #FFB03B;
-    }
-    
-    .embed-responsive {
-        margin: 20px 0;
-    }
-    
-    .caption {
-        text-align: center;
-        margin: 10px 0 20px 0;
-        color: #666;
-        font-size: 100%;
-    }
-    
-    .caption span {
-        color: #222;
-        font-size: 133%;
-        font-weight: bold;
-    }
-    
-    p, li, figcaption {
-        font-size: 18px;
-    }
-    
-    p.lead {
-        font-size: 24px;
-    }
-    
-    .label {
-        font-weight: 500;
-    }
-    
-    .header {
-        text-align: center;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .header h1 a {
-        color: #222;
-        text-decoration: none;
-    }
-    
-    @media (max-width: 500px) {
-        .header .lead {
-            font-size: 18px;
-        }
-    }
-    
-    .content {
-        background: #fff;
-        padding: 20px 0 30px 0;
-    }
-    
-    .footer {
-        border-top: 1px solid #eee;
-        text-align: center;
-        padding: 20px 0 40px 0;
-    }
-    
-    .social-note {
-        font-size: 14px;
-    }
-    
-    .social-icons {
-        font-size: 28px;
-        margin: 0;
-    }
-    
-    .social-icons a {
-        color: #222;
-    }
-    
-    .social-icons i {
-        margin: 0px;
-    }
-    
-    @media (min-width: 768px) {
-        .social-icons {
-            font-size: 36px;
-        }
-        .social-icons i {
-            margin: 0 4px;
-        }
-    }
-    
-    .project h3 a {
-        color: #222;
-    }
-    
-    .project p.lead {
-        margin-bottom: 10px;
-    }
-    
-    .project-sort {
-        text-align: center;
-        background: #fafaf8;
-        padding: 20px 0;
-        margin: 20px 0;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .project-sort ul {
-        display: inline-block;
-    }
-    
-    .project-sort li a {
-        padding: 0.3em 0.75em 0.35em;
-        font-size: 85%;
-        font-weight: 500;
-    }
-    
-    .project-prev-next a {
-        min-width: 150px;
-    }
-    
-    .project-prev-next span.pull-left {
-        padding-right: 10px;
-    }
-    
-    .project-prev-next span.pull-right {
-        padding-left: 10px;
-    }
-    
-    .project-tags {
-        margin-top: -5px;
-        margin-bottom: 20px;
-        line-height: 1.75em;
-    }
-    
-    .project-tags a {
-        text-decoration: none;
-    }
-    
-    .project-links {
-        font-weight: 500;
-    }
-    
-    .project-images {
-        margin-top: 20px;
-        margin-bottom: 10px;
-        padding: 0 7px;
-    }
-    
-    .project-images .col {
-        padding: 0 8px;
-        margin-bottom: 16px;
-    }
-    
-    .about figcaption {
-        margin-top: 10px;
-    }
-    
-    .about ul {
-        padding-left: 25px;
-    }
-    
-    .phrases .buttons {
-        text-align: center;
-        margin: 1em;
-    }
-    
-    .phrases .words {
-        text-align: center;
-        text-transform: capitalize;
-    }
-    
-    .not-found {
-        text-align: center;
-        padding: 40px 0;
-    }
-    
-    .more small {
-        color: #888;
-    }
+	color: #222;
+	margin: 0;
+	padding: 0;
+	font-family: 'Quicksand', sans-serif;
+	background: #fafaf8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Merriweather', serif;
+}
+
+a {
+	color: #337ab7;
+}
+
+a:hover {
+	color: #337ab7;
+}
+
+.project-summary p a, .project-body p a {
+	text-decoration: underline;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+	background-color: #337ab7;
+}
+
+.social-icons a:hover {
+	color: #337ab7;
+}
+
+.label-default {
+	background-color: #445;
+}
+
+.label-warning {
+	background-color: #FFB03B;
+}
+
+.embed-responsive {
+	margin: 20px 0;
+}
+
+.caption {
+	text-align: center;
+	margin: 10px 0 20px 0;
+	color: #666;
+	font-size: 100%;
+}
+
+.caption span {
+	color: #222;
+	font-size: 133%;
+	font-weight: bold;
+}
+
+p, li, figcaption {
+	font-size: 18px;
+}
+
+p.lead {
+	font-size: 24px;
+}
+
+.label {
+	font-weight: 500;
+}
+
+.header {
+	text-align: center;
+	padding: 10px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.header h1 a {
+	color: #222;
+	text-decoration: none;
+}
+
+@media (max-width: 500px) {
+	.header .lead {
+		font-size: 18px;
+	}
+}
+
+.content {
+	background: #fff;
+	padding: 20px 0 30px 0;
+}
+
+.footer {
+	border-top: 1px solid #eee;
+	text-align: center;
+	padding: 20px 0 40px 0;
+}
+
+.social-note {
+	font-size: 14px;
+}
+
+.social-icons {
+	font-size: 28px;
+	margin: 0;
+}
+
+.social-icons a {
+	color: #222;
+}
+
+.social-icons i {
+	margin: 0px;
+}
+
+@media (min-width: 768px) {
+	.social-icons {
+		font-size: 36px;
+	}
+	.social-icons i {
+		margin: 0 4px;
+	}
+}
+
+.project h3 a {
+	color: #222;
+}
+
+.project p.lead {
+	margin-bottom: 10px;
+}
+
+.project-sort {
+	text-align: center;
+	background: #fafaf8;
+	padding: 20px 0;
+	margin: 20px 0;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+
+.project-sort ul {
+	display: inline-block;
+}
+
+.project-sort li a {
+	padding: 0.3em 0.75em 0.35em;
+	font-size: 85%;
+	font-weight: 500;
+}
+
+.project-prev-next a {
+	min-width: 150px;
+}
+
+.project-prev-next span.pull-left {
+	padding-right: 10px;
+}
+
+.project-prev-next span.pull-right {
+	padding-left: 10px;
+}
+
+.project-tags {
+	margin-top: -5px;
+	margin-bottom: 20px;
+	line-height: 1.75em;
+}
+
+.project-tags a {
+	text-decoration: none;
+}
+
+.project-links {
+	font-weight: 500;
+}
+
+.project-images {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding: 0 7px;
+}
+
+.project-images .col {
+	padding: 0 8px;
+	margin-bottom: 16px;
+}
+
+.about figcaption {
+	margin-top: 10px;
+}
+
+.about ul {
+	padding-left: 25px;
+}
+
+.phrases .buttons {
+	text-align: center;
+	margin: 1em;
+}
+
+.phrases .words {
+	text-align: center;
+	text-transform: capitalize;
+}
+
+.not-found {
+	text-align: center;
+	padding: 40px 0;
+}
+
+.more small {
+	color: #888;
+}
