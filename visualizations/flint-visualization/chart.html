@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chart</title>
+</head>
+<body>
+  <canvas id="emailChart" width="400" height="200"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment/moment.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Function to count emails per day from an array of emails
+    function countEmailsPerDay(emails) {
+    const counts = {}
+    
+    emails.forEach(email => {
+        const date = moment.unix(email.timestamp).format("YYYY-MM-DD")
+        counts[date] = (counts[date] || 0) + 1
+    })
+    
+    return counts
+}
+
+async function fetchData(senderName) {
+    try {
+        const url = `http://s-lib007.lib.uiowa.edu/flint/api.php/records/emails?filter=sender,cs,${encodeURIComponent(senderName)}`
+        const response = await axios.get(url)
+        return response.data
+    } catch (error) {
+        console.error("Error fetching data:", error)
+        return []
+    }
+}
+
+async function renderChart() {
+    const senderName = "Miller, Mark"
+    const emails = await fetchData(senderName)
+    console.log(emails)
+    const emailCounts = countEmailsPerDay(emails.records)
+    console.log(emailCounts)
+
+    const labels = Object.keys(emailCounts).map(date => moment(date).format("YYYY-MM-DD"))
+    const data = Object.values(emailCounts)
+
+    const ctx = document.getElementById('emailChart')
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: `Emails by ${senderName}`,
+                data: data,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'category',  // Changed from 'time' to 'category'
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    })
+}
+
+renderChart()
+
+
+  </script>

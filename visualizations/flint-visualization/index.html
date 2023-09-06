@@ -1,0 +1,135 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>    
+    <script>
+$(document).ready(function() {
+    $('#addRow').click(function() {
+        var row = '<div class="row">' +
+            '<select class="field">' +
+            '<option value="attachments">Attachments</option>' +
+            '<option value="cc">CC</option>' +
+            '<option value="timestamp">Timestamp</option>' +
+            '<option value="email_order">Email Order</option>' +
+            '<option value="full_email">Full Email</option>' +
+            '<option value="header">Header</option>' +
+            '<option value="email_id">Email ID</option>' +
+            '<option value="pages">Pages</option>' +
+            '<option value="bookmark">Bookmark</option>' +
+            '<option value="pdf">PDF</option>' +
+            '<option value="bm_title">BM Title</option>' +
+            '<option value="acode">ACode</option>' +
+            '<option value="bcode">BCode</option>' +
+            '</select>' +
+            '<select class="filter">' +
+            '<option value="cs">Contain String</option>' +
+            '<option value="sw">Start With</option>' +
+            '<option value="ew">End With</option>' +
+            '<option value="eq">Equal</option>' +
+            '<option value="lt">Lower Than</option>' +
+            '<option value="le">Lower or Equal</option>' +
+            '<option value="ge">Greater or Equal</option>' +
+            '<option value="gt">Greater Than</option>' +
+            '<option value="bt">Between</option>' +
+            '<option value="in">In</option>' +
+            '<option value="is">Is Null</option>' +
+            '</select>' +
+            '<input type="text" class="search-string">' +
+            '</div>';
+        $('#searchRows').append(row);
+    });
+
+
+    $('#searchForm').submit(function(e) {
+        e.preventDefault();
+
+        var filters = [];
+        var isValid = true;
+        $('.row').each(function() {
+            var searchString = $(this).find('.search-string').val();
+            var filter = $(this).find('.filter').val();
+            var field = $(this).find('.field').val();
+            if (!searchString || !filter || !field) {
+                isValid = false;
+                alert("All search inputs must be filled in.");
+                return false;
+            }
+            filters.push(field + ',' + filter + ',' + searchString);
+        });
+
+        if (isValid) {
+            var url = "http://s-lib007.lib.uiowa.edu/flint/api.php/records/emails?filter=" + filters.join(',');
+            $('#loadingMessage').show();
+
+            $('#emailTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json',
+                    dataSrc: 'records'
+                },
+                columns: [
+                    { data: 'id' },
+                    { data: 'sender' },
+                    { data: 'email_to' },
+                    { data: 'subject' },
+                    { data: 'attachments' },
+                    { data: 'cc' },
+                    { data: 'timestamp' },
+                    { data: 'email_order' },
+                    { data: 'full_email' },
+                    { data: 'header' },
+                    { data: 'email_id' },
+                    { data: 'pages' },
+                    { data: 'bookmark' },
+                    { data: 'pdf' },
+                    { data: 'bm_title' },
+                    { data: 'acode' },
+                    { data: 'bcode' }
+                ]
+            });
+        }
+    });
+});
+    </script>
+</head>
+<body>
+    <form id="searchForm">
+        <div id="searchRows">
+            <!-- Rows of search inputs will be added here -->
+        </div>
+        <button type="button" id="addRow">+</button>
+        <input type="submit" value="Search">
+    </form>
+    <div id="loadingMessage" style="display: none;">Loading...</div>
+    <table id="emailTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sender</th>
+            <th>Email To</th>
+            <th>Subject</th>
+            <th>Attachments</th>
+            <th>CC</th>
+            <th>Timestamp</th>
+            <th>Email Order</th>
+            <th>Full Email</th>
+            <th>Header</th>
+            <th>Email ID</th>
+            <th>Pages</th>
+            <th>Bookmark</th>
+            <th>PDF</th>
+            <th>BM Title</th>
+            <th>ACode</th>
+            <th>BCode</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+    
+</body>
+</html>
