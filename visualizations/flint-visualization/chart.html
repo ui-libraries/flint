@@ -6,10 +6,27 @@
 </head>
 <body>
   <canvas id="emailChart" width="400" height="200"></canvas>
+  <table id="emailTable" class="display">
+    <thead>
+        <tr>
+            <th>Sender</th>
+            <th>Email To</th>
+            <th>Subject</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will go here -->
+    </tbody>
+</table>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment/moment.min.js"></script>
   
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
   <script>
     // Function to count emails per day from an array of emails
     function countEmailsPerDay(emails) {
@@ -72,6 +89,39 @@ async function renderChart() {
 }
 
 renderChart()
+
+function formatTimestamp(timestamp) {
+    return moment.unix(timestamp).format("YYYY-MM-DD HH:mm:ss");
+}
+
+async function populateTable() {
+    const senderName = "Miller, Mark"
+    const emails = await fetchData(senderName)
+    const email = emails.records
+    
+    const tableBody = $('#emailTable tbody')
+    
+    // Populate table rows
+    email.forEach(email => {
+        const row = `
+            <tr>
+                <td>${email.sender}</td>
+                <td>${email.email_to}</td>
+                <td>${email.subject}</td>
+                <td>${formatTimestamp(email.timestamp)}</td>
+            </tr>
+        `
+        tableBody.append(row)
+    })
+
+    // Initialize DataTable
+    $('#emailTable').DataTable()
+}
+
+// Load table on page load
+$(document).ready(function() {
+    populateTable()
+})
 
 
   </script>
