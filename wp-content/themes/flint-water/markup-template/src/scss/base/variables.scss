@@ -1,0 +1,111 @@
+$breakpoints: (
+	"full": 1920px,
+	"xl": 1680px,
+	"macbook": 1440px,
+	"ipad-pro": 1366px,
+	"desktop-md": 1200px,
+	"desktop": 1024px,
+	"tablet": 768px,
+	"phone": 667px,
+	"phone-md": 568px,
+	"phone-sm": 480px,
+	"phone-xs": 375px
+);
+// ligatured operators ≥ ≤
+
+// keywords
+$media-expressions: (
+	"iphoneX":
+		"(min-width: 812px) and (max-height: 414px) and (orientation: landscape)",
+	"screen": "screen",
+	"print": "print",
+	"handheld": "handheld",
+	"landscape": "(orientation: landscape)",
+	"portrait": "(orientation: portrait)",
+	"retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
+	"retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)"
+);
+
+// Colors theme
+$brand-color: #637b8c;
+$accent-color: #e25262;
+// $accent-color: $brand-color;
+
+// font-family
+$base-main-font: "Arial";
+$base-font-sans-serif: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+$base-font-serif: "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+$base-font: $base-main-font, $base-font-sans-serif;
+$accent-font: $base-font;
+
+// Headers
+// name use for media query `<${name}`. See `$breakpoints` variable for a possible key.
+$h1-h6-font-size: (
+	// --------- h1 ---- h2 ----h3 ---- h4 -- h5 -- h6 ---
+	"default": (3.5rem, 2.8rem, 2.2rem, 2rem, 17px, 16px),
+	"tablet": (25px, 23px, 20px, 18px, 17px, 16px)
+);
+
+// Container
+$gutter: 20px;
+$container: (
+	"default": 1180px,
+	// "lg": 1400px
+);
+
+// Buttons size
+//
+// x - top/bottom padding
+// y - left/right padding
+// b - border
+// r - radius
+// fz - font-size
+//
+$btnsSize: (
+	"default": (
+		"default": (
+			"y": 10px,
+			"x": 20px,
+			"b": 1px,
+			"r": 3px,
+			"fz": 13px
+		),
+		// if need other size button
+		// 'lg': ('y': 18px, 'x': 35px, 'b': 3px, 'r': 0, 'fz': 22px)
+	),
+	"phone": (
+		"default": (
+			"y": 1rem,
+			"x": 2rem,
+			"b": 1px,
+			"r": 3px,
+			"fz": 13px
+		)
+	)
+);
+// Input padding left and right
+$input-padding-x: map-get(
+	map-get(map-get($btnsSize, "default"), "default"),
+	"x"
+);
+
+// Form elements styling
+$input-color: #4b4a4a;
+$input-placeholder-color: lighten($input-color, 20%);
+$input-bg-color: white;
+$input-radius: 3px;
+$input-border-color: #eee;
+$input-focus-border-color: darken($input-border-color, 13%);
+
+$form-theme-color: $brand-color; // checkbox, radio, datepicker theme color
+$checkbox-size: 18px;
+$radio-size: $checkbox-size;
+
+$label-fz: 13px;
+$label-color: $input-color;
+
+$error-color: #e04562;
+$error-bg-color: lighten($error-color, 35%);
+
+$form-col-gutter: 15px;
+$form-row-margin: $form-col-gutter * 1.5;

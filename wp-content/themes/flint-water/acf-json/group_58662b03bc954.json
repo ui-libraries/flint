@@ -1,0 +1,39 @@
+{
+    "key": "group_58662b03bc954",
+    "title": "Custom Title",
+    "fields": [],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "page-templates\/redirect.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "default"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "page-templates\/flexible-sections.php"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1721660195
+}

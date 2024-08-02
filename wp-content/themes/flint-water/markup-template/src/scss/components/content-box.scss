@@ -1,0 +1,72 @@
+.content-box {
+	display: flex;
+	align-items: center;
+	gap: 180px;
+
+	@include media("<=xl") {
+		gap: 120px;
+	}
+
+	@include media("<=lg") {
+		gap: 50px;
+	}
+
+	@include media("<=840px") {
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	&._reverse {
+		flex-direction: row-reverse;
+
+		@include media("<=840px") {
+			flex-direction: column;
+		}
+		
+		.box {
+			padding-left: 0;
+			padding-right: 40px;
+
+			@include media("<=lg") {
+				padding-right: 20px;
+			}
+
+			@include media("<=840px") {
+				padding-right: 0;
+			}
+		}
+	}
+
+	&_col {
+		flex-basis: 100%;
+	}
+
+	&_images {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 25px;
+		aspect-ratio: 20/ 12;
+
+		&._grid-secondary {
+			grid-template-columns: 60% 1fr;
+		}
+	}
+
+	&_img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.box {
+		padding-left: 40px;
+
+		@include media("<=lg") {
+			padding-left: 20px;
+		}
+
+		@include media("<=840px") {
+			padding-left: 0;
+		}
+	}
+}

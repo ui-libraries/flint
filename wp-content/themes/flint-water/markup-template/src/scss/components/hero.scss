@@ -1,0 +1,67 @@
+.hero {
+	position: relative;
+	padding: 220px 0 145px;
+	color: #fff;
+
+	@include media("<=sm") {
+		padding: 180px 0 145px;
+	}
+
+	&._pb-0 {
+		padding-bottom: 0;
+	}
+
+	&._pb-lg {
+		padding-bottom: 210px;
+	}
+
+	&._pt-md {
+		padding-top: 165px;
+
+		@include media("<=md") {
+			padding-top: 130px;
+		}
+	}
+
+	&_content {
+		position: relative;
+		z-index: 30;
+		
+		&._translateX-sm {
+			translate: 0 25px;
+		}
+
+		h2,
+		.h2 {
+			font-size: 45px;
+
+			@include media("<=lg") {
+				font-size: 40px;
+			}
+		}
+	}
+
+	&_bg {
+		position: absolute;
+		inset: 0;
+		z-index: 10;
+		pointer-events: none;
+	}
+
+	&_img,
+	&_texture {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&_img {
+		z-index: 10;
+	}
+
+	&_texture {
+		z-index: 20;
+	}
+}

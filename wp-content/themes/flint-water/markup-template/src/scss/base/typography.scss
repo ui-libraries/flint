@@ -1,0 +1,125 @@
+body {
+	font-family: "grotesk", sans-serif;
+	font-size: 16px;
+	line-height: 1.25;
+	color: black;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
+}
+
+
+h1,
+.h1 {
+	margin: 0 0 20px;
+	font-size: clamp(40px, 6.5vw, 85px);
+	line-height: 0.85;
+}
+
+h2,
+.h2 {
+	margin: 0 0 15px;
+	font-size: 35px;
+	line-height: 1;
+
+	@include media("<=lg") {
+		font-size: 32px;
+	}
+
+	@include media("<=sm") {
+		font-size: 29px;
+	}
+}
+
+h3,
+.h3 {
+	font-size: 30px;
+	margin: 0 0 0.6em;
+}
+
+h4,
+.h4 {
+	font-size: 25px;
+	margin: 0 0 0.6em;
+}
+
+h5,
+.h5 {
+	font-size: 20px;
+	margin: 0 0 0.7em;
+}
+
+h6,
+.h6 {
+	margin: 0 0 0.8em;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 1.2em;
+}
+
+a {
+	color: var(--orange);
+	transition: var(--transition);
+
+	&:hover {
+		color: lighten($color: #ff551f, $amount: 10);
+	}
+}
+
+table {
+	width: 100%;
+	margin-bottom: 1.2em;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+.fw-400 {
+	font-weight: 400 !important;
+}
+
+.fs-lg {
+	font-size: clamp(30px, 4.5vw, 45px) !important;
+	line-height: 1.2;
+}
+
+.text-green {
+	color: var(--green) !important;
+}
+
+.text-jeans {
+	color: var(--jeans) !important;
+}
+
+.text-yellow {
+	color: var(--yellow) !important;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.arrow-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+
+	&_arrow {
+		width: 12px;
+		height: 10px;
+		fill: currentColor;
+	}
+}

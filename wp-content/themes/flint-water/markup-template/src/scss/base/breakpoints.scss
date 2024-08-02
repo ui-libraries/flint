@@ -1,0 +1,22 @@
+$breakpoints: (
+	"xs": 0,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1200px,
+	"xlg": 1400px,
+);
+
+$media-expressions: (
+	"phone-landscape":
+		"(min-width: 812px) and (max-height: 414px) and (orientation: landscape)",
+	"screen": "screen",
+	"print": "print",
+	"handheld": "handheld",
+	"landscape": "(orientation: landscape)",
+	"portrait": "(orientation: portrait)",
+	"retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
+	"retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)"
+);
+
+

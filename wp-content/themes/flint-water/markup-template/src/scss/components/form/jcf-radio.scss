@@ -1,0 +1,38 @@
+.jcf-radio {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+}
+
+.jcf-radio span {
+  display: none;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: #000;
+  border-radius: 100%;
+}
+
+.jcf-radio input[type="radio"] {
+  position: absolute;
+	cursor: pointer;
+  height: 100%;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+}
+
+.jcf-radio.jcf-checked span {
+  display: block;
+}

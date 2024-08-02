@@ -1,0 +1,195 @@
+//
+//Variable for button
+//
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 150 !default;
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark: #000 !default;
+$yiq-text-light: #fff !default;
+//how much persent darker to do colors when button hover
+$button-hover-darken-persent: 15% !default;
+
+//
+// function Color contrast (what color to use #000 or #fff)
+//
+
+@function color-yiq($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >=$yiq-contrasted-threshold) {
+    @return $yiq-text-dark;
+  } @else {
+    @return $yiq-text-light;
+  }
+}
+
+//
+// Button variants mixins
+//
+
+@mixin button-variant(
+  $background: var(--accent-color),
+  $color: color-yiq($background),
+  $border: $background,
+  $hover-background: var(--accent-color-dark),
+  $hover-color: color-yiq($hover-background),
+  $hover-border: var(--accent-color-dark)
+) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+}
+
+@mixin button-outline-variant(
+  $color: var(--accent-color),
+  $color-hover: color-yiq($color),
+  $hover-background: $color,
+  $color-border: $color,
+  $hover-border: $color-hover
+) {
+  color: $color;
+  background-color: transparent;
+  background-image: none;
+  border-color: $color-border;
+
+  &:hover {
+    color: $color-hover;
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+}
+
+//input mixin without hover
+@mixin input-variant(
+  $background: $fon-brand,
+  $color: color-yiq($background),
+  $border: $background
+) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+}
+
+//
+// Button sizes mixin
+//
+
+@mixin button-size(
+  $padding: var(--btn-y) var(--btn-x),
+  $font-size: var(--btn-fz),
+  $border-radius: var(--btn-r),
+  $border-width: var(--btn-b),
+  $line-height: 1.1
+) {
+  padding: $padding;
+  font-size: $font-size;
+  border-radius: $border-radius;
+  border-width: $border-width;
+  line-height: $line-height;
+}
+
+//
+//-------------------style for button
+//
+
+//
+// Base styles for button
+//
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-style: solid;
+  transition: all var(--animation-duration) var(--animation-timing-function);
+  font-weight: bold;
+
+  //variable located markup-template/scss/base/variables.scss
+  //size button mixin
+  // $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
+  @include button-size(); // default
+  //color button mixin $background | $color | $border | $hover-background | $hover-color | $hover-border
+  @include button-variant(
+    var(--accent-color),
+    #fff,
+    var(--accent-color),
+    transparent,
+    var(--base-text-color)
+  );
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// If need outline button
+// .btn-outline{
+// 	//color outline-button mixin $color | $color-hover | $hover-background | $color-border | $hover-border
+// 	@include button-outline-variant(--accent-color);
+// }
+
+//
+// Button Sizes
+//
+
+// if need other size button
+// .btn-lg {
+// 	@include button-size(
+// 			var(--btn-lg-y) var(--btn-lg-x),
+// 			var(--btn-lg-fz),
+// 			var(--btn-lg-r),
+// 			var(--btn-lg-b),
+// 			1.2
+// 		)
+// }
+
+//
+// Link buttons. Make a button look and behave like a link
+//
+
+.btn-link {
+  color: var(--accent-color);
+  background-color: transparent;
+  border-color: transparent;
+  transition: all var(--animation-duration) var(--animation-timing-function);
+
+  &:hover {
+    color: var(--accent-color-dark);
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+//
+// Block button
+//
+
+.btn-block {
+  display: block;
+  width: 100%;
+
+  // Vertically space out multiple block buttons
+  + .btn-block {
+    margin-top: 15px;
+  }
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

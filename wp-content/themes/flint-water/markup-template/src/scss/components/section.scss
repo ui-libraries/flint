@@ -1,0 +1,157 @@
+.section {
+	position: relative;
+	padding: clamp(60px, 7vw, 100px) 0;
+
+	& > :last-child {
+		margin-bottom: 0;
+	}
+
+	&._py-70 {
+		padding: clamp(20px, 5vw, 70px) 0;
+	}
+
+	&._pt-60 {
+		padding-top: 60px;
+
+		@include media("<=md") {
+			padding-top: 40px;
+		}
+	}
+
+	&._pt-40 {
+		padding-top: 40px;
+
+		@include media("<=lg") {
+			padding-top: 20px;
+		}
+	}
+
+	&._pb-30 {
+		padding-bottom: 30px;
+
+		@include media("<=lg") {
+			padding-bottom: 20px;
+		}
+	}
+
+	&._pt-30 {
+		padding-top: 30px;
+
+		@include media("<=lg") {
+			padding-top: 20px;
+		}
+	}
+
+	&._p-0 {
+		padding: 0;
+	}
+
+	&._overlap-top {
+		margin-top: -80px;
+		position: relative;
+		z-index: 30;
+	}
+
+	&_head {
+		margin-bottom: 60px;
+
+		@include media("<=lg") {
+			margin-bottom: 40px;
+		}
+	}
+
+	&_row {
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&_grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 70px;
+
+		@include media("<=860px") {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+	}
+
+	&_cols {
+		position: relative;
+		z-index: 20;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 100px;
+		
+		@include media("<=860px") {
+			gap: 45px;
+		}
+
+		@include media("<=700px") {
+			grid-template-columns: 1fr;
+			max-width: 420px;
+			margin-inline: auto;
+		}
+	}
+
+	&_col {
+		&._align-end {
+			align-self: end;
+		}
+	}
+
+	&_image {
+		margin-bottom: clamp(40px, 6.5vw, 90px);
+	}
+
+	&_img-holder {
+		position: relative;
+		padding-bottom: 60%;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&_img {
+		margin-bottom: calc(clamp(60px, 7vw, 100px) * -1);
+		
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&_bg {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&.bg-black {
+		h1,
+		h2,
+		h3 {
+			color: #fff;
+		}
+
+		p {
+			color: var(--grey);
+		}
+	}
+}

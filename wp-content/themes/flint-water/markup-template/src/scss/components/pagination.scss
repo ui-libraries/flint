@@ -1,0 +1,36 @@
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 15px;
+	font-weight: 500;
+
+	&._center {
+		justify-content: center;
+	}
+
+	&_label {
+		color: var(--grey);
+	}
+
+	&_list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0;
+	}
+
+	&_link {
+		color: inherit;
+		display: inline-block;
+		padding: 5px 10px;
+		line-height: 1;
+		text-decoration: none;
+
+		&:hover,
+		&._active {
+			color: var(--orange);
+			text-decoration: none;
+		}
+	}
+}

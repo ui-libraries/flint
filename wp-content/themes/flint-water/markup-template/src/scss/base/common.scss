@@ -1,0 +1,107 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+html {
+	font-size: 8px;
+
+	@include media(">=lg"){
+		font-size: 8.5px;
+	}
+
+	@include media(">=xl"){
+		font-size: 10px;
+	}
+}
+
+body {
+	min-width: 320px;
+	background-color: #fafafa;
+
+	&._lock {
+		overflow: hidden;
+	}
+}
+
+.wrapper {
+	position: relative;
+	display: grid;
+	grid-template-rows: 1fr auto;
+	min-height: 100%;
+	width: 100%;
+	overflow: hidden;
+
+	&._pt-100 {
+		padding-top: 100px;
+	}
+
+	&._overflow-auto {
+		overflow: auto;
+	}
+}
+
+.container {
+	max-width: calc(1240px + var(--gutter) * 2);
+	width: 100%;
+	padding: 0 var(--gutter);
+	margin: 0 auto;
+
+	&._width-1115 {
+		max-width: 1115px;
+	}
+
+	&._width-1070 {
+		max-width: 1070px;
+	}
+
+	&._width-950 {
+		max-width: 950px;
+	}
+
+	&._width-830 {
+		max-width: 830px;
+	}
+}
+
+// fix bug on some flex block (see example with slider swiper)
+.main,
+.header,
+.footer {
+	min-width: 0;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+button {
+	padding: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+label {
+	display: block;
+}
+
+select {
+	display: block;
+	width: 100%;
+}
+
+#emailChart {
+	@include media("<=sm") {
+		width: 100%;
+	}
+}
+
+.table thead th {
+	vertical-align: middle;
+}

@@ -1,0 +1,38 @@
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+textarea {
+	display: block;
+	font-family: inherit;
+	color: var(--grey);
+	border: 1px solid #000;
+	outline: none;
+	padding: 0 20px;
+	width: 100%;
+	height: 50px;
+	background-color: #fff;
+
+	@include media("<=sm") {
+		padding: 0 10px;
+	}
+
+	&::placeholder {
+		color: var(--grey);
+	}
+}
+
+textarea {
+	resize: none;
+	height: 107px;
+	padding-top: 20px !important;
+}
+
+.form-control {
+	font-size: 16px;
+}

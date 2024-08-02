@@ -1,0 +1,27 @@
+.header-menu-wrapper {
+	color: var(--base-text-color);
+	position: relative;
+	padding: 15px 0;
+	z-index: 2;
+	box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.2);
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+
+		@include media("<=tablet") {
+			align-items: center;
+		}
+	}
+}
+
+.page-header {
+	.logo {
+		display: block;
+
+		svg {
+			width: 160px;
+		}
+	}
+}

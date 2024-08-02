@@ -1,0 +1,6 @@
+.acf-repeater .acf-row:hover a.acf-icon.-duplicate{
+    display: block !important;
+}
+.acf-repeater .acf-row:hover a.acf-icon.-plus{
+    display: none !important;
+}

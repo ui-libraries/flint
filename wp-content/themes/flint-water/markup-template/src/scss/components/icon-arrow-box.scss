@@ -1,0 +1,25 @@
+.icon-arrow-box {
+	flex-shrink: 0;
+	width: 18px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #e9eaf0;
+	background-color: #fff;
+	
+	svg {
+		rotate: -45deg;
+		width: 60%;
+		height: 60%;
+		fill: var(--orange);
+	}
+
+	&._dark {
+		border-color: #000;
+
+		svg {
+			fill: var(--grey);
+		}
+	}
+}

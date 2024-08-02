@@ -1,0 +1,37 @@
+.list-reset {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.bg-black {
+  background-color: #000 !important;
+}
+
+.bg-mercury {
+  background-color: var(--mercury) !important;
+}
+
+.bg-athens-gray {
+  background-color: var(--athens-gray) !important;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.mb-35 {
+  margin-bottom: 35px !important;
+}

@@ -1,0 +1,28 @@
+.posts-text-grid {
+	display: grid;
+	margin-bottom: 60px;
+	gap: 40px;
+
+	@include media("<=lg") {
+		margin-bottom: 40px;
+		gap: 25px;
+	}
+}
+
+.post-text {
+	padding: 35px;
+	border: 1px solid #000;
+	background-color: #fff;
+
+	@include media("<=lg") {
+		padding: 20px;
+	}
+
+	.box {
+		max-width: 620px;
+
+		&_text {
+			width: 90%;
+		}
+	}
+}

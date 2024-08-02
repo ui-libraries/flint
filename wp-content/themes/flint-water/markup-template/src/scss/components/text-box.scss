@@ -1,0 +1,28 @@
+.text-box-wrap {
+	display: grid;
+	gap: 30px;
+}
+
+.text-box {
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	gap: 15px 120px;
+
+	@include media("<=lg") {
+		column-gap: 60px;
+	}
+
+	@include media("<md") {
+		grid-template-columns: 1fr;
+	}
+
+	&_col {
+		& > :last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	h2 {
+		font-size: 25px;
+	}
+}

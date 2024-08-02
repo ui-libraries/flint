@@ -1,0 +1,28 @@
+---
+title: Homepage
+---
+{% include 'src/template/head.html' %}
+
+<body>
+	<div class="wrapper">
+		{% include 'src/template/header.html' %}
+		<main class="main">
+			<div class="test">
+				<div class="container">
+					<div class="items">
+						<div class="item">
+							<canvas id="monthlyBarChart" class="chart"></canvas>
+						</div>
+						<div class="item">
+							<canvas id="monthlyBarChart" class="chart"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		{% include 'src/template/footer.html' %}
+	</div>
+	{% include 'src/template/includes.html' %}
+</body>
+
+</html>

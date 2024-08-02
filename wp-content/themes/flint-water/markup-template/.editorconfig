@@ -1,0 +1,25 @@
+# Universal editor settings
+# See below for more details.
+# http://editorconfig.org
+# https://habrahabr.ru/post/220131/
+# https://packagecontrol.io/packages/EditorConfig
+
+root = true
+
+[*]
+end_of_line = lf
+indent_style = tab
+tab_width = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[node_modules/**.js]
+codepaint = false
+
+[package.json]
+indent_style = tab
+tab_width = 2

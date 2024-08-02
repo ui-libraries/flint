@@ -1,0 +1,95 @@
+.form {
+	background-color: #fff;
+	padding: 30px 45px;
+	border: 1px solid #000;
+
+	@include media("<=lg") {
+		padding: 25px;
+	}
+
+	&_cols {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 30px 50px;
+
+		@include media("<=lg") {
+			gap: 30px;
+		}
+
+		@include media("<=sm") {
+			gap: 15px;
+		}
+	}
+
+	&_label-hidden {
+		visibility: hidden;
+		
+		@include media("<=sm") {
+			display: none;
+		}
+	}
+
+	&_col {
+		display: grid;
+		row-gap: 30px;
+		grid-column: 1 / span 2;
+
+		@include media("<=sm") {
+			gap: 15px;
+		}
+
+		&._half {
+			grid-column: span 1;
+
+			@include media("<=sm") {
+				grid-column: 1 / span 2;
+			}
+		}
+	}
+
+	&_row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 35px 20px;
+		align-items: flex-end;
+
+		@include media("<=lg") {
+			grid-template-columns: 1fr;
+			gap: 30px;
+		}
+
+		@include media("<=sm") {
+			gap: 15px;
+		}
+	}
+
+	&_icon {
+		position: relative;
+
+		input {
+			padding-left: 45px !important;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 20px;
+			translate: 0 -50%;
+			width: 14px;
+			height: 14px;
+			background-image: url("../img/icons/calendar.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+	}
+	
+	.button {
+		min-width: 130px;
+	}
+}
+
+label {
+	font-weight: 500;
+	margin-bottom: 10px;
+}

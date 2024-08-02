@@ -1,0 +1,15 @@
+@import "vendors/include-media";
+@import "base/breakpoints";
+
+:root {
+	--orange: #ff551f;
+	--jeans: #6c83b5;
+	--yellow: #e5a82b;
+	--grey: #777;
+	--green: #33a389;
+	--mercury: #e8e8e8;
+	--athens-gray: #f2f4f6;
+	--transition: 0.2s ease;
+
+	--gutter: 20px;
+}

@@ -1,0 +1,39 @@
+.am-acf-holder{
+    position: relative;
+    display: inline-block;
+}
+.am-acf-holder button {
+    background: url('../img/pointer-svgrepo-com.svg');
+    border: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 5px;
+}
+.am-acf-holder img {
+    position: absolute;
+    max-width: 300px;
+    height: auto;
+    top: 0;
+    right: calc(100% + 12px);
+    display: none;
+    max-height: 200px;
+    border: 2px solid #000;
+    background: #fff;
+}
+.layout .am-acf-holder img {
+    right: inherit;
+    bottom: calc(100% + 10px);
+    top: inherit;
+    left: 0;
+}
+.layout .am-acf-holder button {
+    background: url('../img/pointer-svgrepo-com-dark.svg');
+}
+.am-acf-holder button:active,
+.am-acf-holder button:focus {
+    outline: none;
+}

@@ -1,0 +1,146 @@
+.calendar-timeline-wrapper {
+	position: relative;
+
+	.calendar-timeline-overlay {
+		width: 25%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: linear-gradient(to right, rgba(250, 250, 250, 1) 0%, rgba(250, 250, 250, 0) 100%);
+		z-index: 10;
+		opacity: 0.95;
+		pointer-events: none;
+
+		&._right {
+			left: initial;
+			right: 0;
+			background-image: linear-gradient(to left, rgba(250, 250, 250, 1) 0%, rgba(250, 250, 250, 0) 100%);
+		}
+	}
+}
+
+.calendar-timeline {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 20px;
+	overflow-x: auto;
+	padding-top: 60px;
+	padding-bottom: 20px;
+
+  &_item {
+    position: relative;
+    width: 8px;
+		flex-shrink: 0;
+
+    &._info {
+      cursor: pointer;
+
+      .calendar-timeline_bar {
+        height: 52px;
+        background-color: var(--yellow);
+      }
+
+      &:hover {
+				.calendar-timeline_bar {
+					background-color: var(--orange);
+				}
+			}
+    }
+
+    &._active {
+      .calendar-timeline_bar {
+        background-color: var(--orange);
+      }
+
+      .calendar-timeline_date,
+      .calendar-timeline_info {
+        visibility: visible;
+      }
+    }
+
+    &._tick {
+      .calendar-timeline_bar {
+        height: 30px;
+        background-color: #000;
+      }
+    }
+  }
+
+  &_bar {
+    width: 1px;
+    height: 11px;
+    margin: 0 auto;
+    background-color: var(--grey);
+  }
+
+  &_info {
+    visibility: hidden;
+    width: 210px;
+  }
+
+  &_label {
+    position: absolute;
+    top: -20px;
+    font-size: 10px;
+    color: var(--grey);
+  }
+
+  &_date {
+		visibility: hidden;
+    position: absolute;
+		right: 0;
+		bottom: calc(100% + 10px);
+		z-index: 10;
+		min-width: 110px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 8px;
+    background-color: #000;
+
+		&._pos-left {
+			left: 0;
+			right: initial;
+		}
+  }
+
+  &_list {
+    li {
+			position: relative;
+      padding-left: 25px;
+      padding-bottom: 25px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        bottom: 0;
+        width: 1px;
+        top: 20px;
+        background-color: var(--orange);
+      }
+
+			&:before {
+        content: "";
+        position: absolute;
+				top: 8px;
+        left: 3px;
+        width: 3px;
+        height: 3px;
+        border-radius: 100%;
+        background-color: var(--orange);
+      }
+
+
+      &:last-child {
+        padding-bottom: 0;
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+}

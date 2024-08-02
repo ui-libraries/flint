@@ -1,0 +1,24 @@
+.socials {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+
+	&_link {
+		width: 46px;
+		height: 46px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba($color: #777, $alpha: 0.4);
+
+		&:hover {
+			background-color: var(--orange);
+		}
+		
+		svg {
+			width: 18px;
+			height: 18px;
+			fill: white;
+		}
+	}
+}

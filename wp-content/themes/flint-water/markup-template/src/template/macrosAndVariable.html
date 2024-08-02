@@ -1,0 +1,14 @@
+{# example how create clobal variable #}
+{% set h2TestVar = "h2 Global variable nunjucks" %}
+{# Just comment - macros test #}
+{% macro test(arr) %}
+<div style="margin-top: 50px;">
+	<h2>{{arr.h2}}</h2>
+	<h3>{{arr.h3}}</h3>
+	{% if arr.h4 %}
+		<h4>{{arr.h4}}</h4>
+	{% else %}
+		<h4>You don't added H4</h4>
+	{% endif %}
+</div>
+{% endmacro %}

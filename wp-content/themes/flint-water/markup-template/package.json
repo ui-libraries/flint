@@ -1,0 +1,44 @@
+{
+  "name": "html-template",
+  "version": "1.0.0",
+  "description": "html template",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "start": "gulp",
+    "dev": "gulp dev",
+    "dist": "gulp dist"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.8",
+    "browser-sync": "^2.27.10",
+    "csscomb": "^4.3.0",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-front-matter": "^1.3.0",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-replace": "^1.1.3",
+    "gulp-responsive-imgz-ignore": "^0.0.10",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^5.1.0",
+    "gulp-sass-bulk-import": "^1.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-version-number": "^0.2.4",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "postcss": "^8.4.16",
+    "postcss-sort-media-queries": "^4.2.1",
+    "sass": "^1.54.5"
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
+}

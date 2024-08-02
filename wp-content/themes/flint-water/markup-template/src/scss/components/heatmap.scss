@@ -1,0 +1,58 @@
+.heatmap {
+	&_holder {
+		overflow-x: auto;
+		min-height: 150px;
+	}
+
+	&_nav {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+	}
+
+	&_nav-button {
+		color: #fff;
+		border-radius: 4px;
+		background-color: #9fa9ae;
+		padding: 5px 15px;
+
+		&:hover {
+			background-color: #1f700f;
+		}
+	}
+
+	&_row {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		justify-content: space-between;
+		margin-bottom: 40px;
+
+		@include media("<=sm") {
+			flex-direction: column;
+		}
+	}
+
+	&_info {
+		margin-bottom: 0;
+		font-size: 15px;
+	}
+}
+
+.ch-subdomain-bg {
+	fill: #e6e6e6;
+}
+
+.ch-domain-text {
+	fill: #000;
+	font-size: 12px;
+}
+
+.ch-subdomain-text {
+	font-size: 10px;
+}
+
+#ch-tooltip {
+	font-size: 16px;
+	color: #fff;
+}

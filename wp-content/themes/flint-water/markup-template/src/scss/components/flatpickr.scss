@@ -1,0 +1,9 @@
+.flatpickr-current-month {
+	display: flex;
+	justify-content: center;
+}
+
+.flatpickr-day.selected {
+	background-color: var(--orange);
+	border-color: var(--orange);
+}

@@ -1,0 +1,151 @@
+// Clearfix
+%clearfix {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+// Helper class to truncate and add ellipsis to a string too long for it to fit on a single line.
+%ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+// Stretch img with fix to chrome
+%bg-stretch-img {
+	width: 100%;
+	max-width: none;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+//------------------------- Placeholder mixin
+@mixin optional-at-root($sel) {
+	@at-root #{if(not &, $sel, selector-append(&, $sel))} {
+		@content;
+	}
+}
+
+@mixin placeholder {
+	@include optional-at-root('::-webkit-input-placeholder') {
+		@content;
+	}
+
+	@include optional-at-root(':-moz-placeholder') {
+		@content;
+	}
+
+	@include optional-at-root('::-moz-placeholder') {
+		@content;
+	}
+
+	@include optional-at-root(':-ms-input-placeholder') {
+		@content;
+	}
+}
+//how to use
+// .foo {
+// 	@include placeholder {
+// 		color: green;
+// 	}
+// }
+
+//------------------------- size mixin
+@mixin size($width: 100px, $height: $width) {
+	width: $width;
+	height: $height;
+}
+//how to use
+///.foo {
+///		@include size(100px, 150px);
+///}
+
+//------------------------- mixin responsive-ratio
+@function arf($x: 16, $y: 9) {
+	$var-aspect-ratio: calc($y / $x);
+		$var-aspect-ratio-round: calc(round($var-aspect-ratio * 10000) / 10000);
+	@return $var-aspect-ratio-round * 100%;
+}
+
+@mixin a-r($x: 16, $y: 9) {
+	@extend %a-r-ex;
+}
+
+%a-r-ex {
+	position: relative;
+	overflow: hidden;
+
+	&:before {
+		content: "";
+		display: block;
+		width: 100%;
+		padding-top: arf(16px,9px);
+	}
+}
+
+//how to use see https://codepen.io/sharnirio/pen/ZEOQvmb
+//div {@include a-r(16,9);} or div {@include a-r(200px,400px);}
+
+//------------------------- mixin for modifications responsive-ratio
+@mixin armod($xReal: 100, $yReal: 100,$x: 1, $y: 1) {
+	&._#{$x}-#{$y}:before {
+		padding-top: arf($xReal,$yReal);
+	}
+}
+
+//how to use see https://codepen.io/sharnirio/pen/ZEOQvmb
+//.bg-str {
+// 	@include a-r();
+// 	@include armod(100,100,1,1);
+// 	@include armod(100,50,2,1);
+// }
+
+
+//------------------------- Mixin for vertical indentation
+@mixin liY($value:15px) {
+	&:nth-child(n+2) {
+		margin-top: $value;
+	}
+}
+
+//how to use
+// ul>li {@include liY(20px)}
+
+//------------------------- Mixin for horizontal indentation
+@mixin liX($value:15px) {
+	&:nth-child(n+2) {
+		margin-left: $value;
+	}
+}
+
+//how to use
+// ul>li {@include liX(20px}
+
+//------------------------- function calculate px --to-- em
+@function em($pixels, $context) {
+	$em-pixels: calc($pixels / $context * 1em);
+	@return calc(round($em-pixels * 100) / 100);
+}
+
+//how to use
+// .div {
+// 	font-size: em(20px, 18px);
+// }
+
+// Fetch nested keys https://www.sitepoint.com/extra-map-functions-sass/
+// @param {Map} $map - Map
+// @param {Arglist} $keys - Keys to fetch
+// @return {*}
+@function map-deep-get($map, $keys...) {
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+	@return $map;
+}

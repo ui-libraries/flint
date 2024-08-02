@@ -1,0 +1,706 @@
+---
+title: Homepage
+---
+{% include 'src/template/head.html' %}
+
+<body>
+	<div class="wrapper">
+		{% include 'src/template/header.html' %}
+		<main class="main">
+			<section class="hero _pt-md _pb-0 bg-black">
+				<div class="hero_content _translateX-sm" data-aos="fade-up">
+					<div class="container _width-830">
+						<div class="box text-center">
+							<h1>Flint Water Crisis <br> Public Archive</h1>
+							<div class="box_text _mb-40">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+								</p>
+							</div>
+							<a href="#" class="button">
+								Access the archive
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="hero_bg">
+					<img class="hero_img" src="./img/section-bg.png" alt="">
+					<img class="hero_texture" src="./img/texture.png" alt="">
+				</div>
+			</section>
+			<section class="section">
+				<div class="section_head" data-aos="fade-up">
+					<div class="container _width-830">
+						<div class="box text-center">
+							<div class="box_label">Database</div>
+							<h2>
+								Lorem ipsum dolore sit amet
+							</h2>
+							<div class="box_text">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+									aeiusmod
+									tempor incididunt
+								</p>
+							</div>
+							<div class="box_search">
+								<div class="search-form">
+									<form>
+										<div class="search-form_box">
+											<input type="text" placeholder="Search  Email">
+											<button class="search-form_button" type="submit">
+												<span class="sr-only">Search</span>
+												<svg>
+													<use xlink:href="./img/icons/sprite.svg#search">
+												</svg>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="section_row">
+						<div class="info-row">
+							<div class="info-col" data-aos="fade-up">
+								<div class="info">
+									<div class="info_head">
+										<div class="info_box">
+											<a class="info_label" href="#">
+												<span>Email Frequency Chart</span>
+												<span class="icon-arrow-box">
+													<svg>
+														<use xlink:href="./img/icons/sprite.svg#arrow-right-long"></use>
+													</svg>
+												</span>
+											</a>
+											<h2 class="info_title">Lorem ipsum dolore sit 2024</h2>
+										</div>
+									</div>
+									<div class="info_body _chart">
+										<div>
+											<div class="info-chart-holder">
+												<canvas id="monthlyBarChart" class="chart" data-months='[
+													{ "month": "Jan", "emails": 95 },
+													{ "month": "Feb", "emails": 60 },
+													{ "month": "Mar", "emails": 40 },
+													{ "month": "Apr", "emails": 70 },
+													{ "month": "May", "emails": 30 },
+													{ "month": "Jun", "emails": 110 }
+												]'>
+												</canvas>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-col" data-aos="fade-up">
+								<div class="info">
+									<div class="info_head">
+										<div class="info_box">
+											<a class="info_label" href="#">
+												<span>Calendar Heatmap</span>
+												<span class="icon-arrow-box">
+													<svg>
+														<use xlink:href="./img/icons/sprite.svg#arrow-right-long"></use>
+													</svg>
+												</span>
+											</a>
+											<h2 class="info_title">Lorem ipsum dolore sit 2024</h2>
+										</div>
+									</div>
+									<div class="info_body">
+										<div class="heatmap" data-dates='[
+													{
+															"date": "2024-01-12",
+															"value": 40
+													},
+													{
+															"date": "2024-01-16",
+															"value": 5
+													},
+													{
+															"date": "2024-01-18",
+															"value": 90
+													},
+													{
+															"date": "2024-01-21",
+															"value": 50
+													},
+													{
+															"date": "2024-01-23",
+															"value": 5
+													},
+													{
+															"date": "2024-01-25",
+															"value": 130
+													},
+													{
+															"date": "2024-01-29",
+															"value": 160
+													},
+													{
+															"date": "2024-02-12",
+															"value": 40
+													},
+													{
+															"date": "2024-02-16",
+															"value": 5
+													},
+													{
+															"date": "2024-02-18",
+															"value": 90
+													},
+													{
+															"date": "2024-02-21",
+															"value": 50
+													},
+													{
+															"date": "2024-02-23",
+															"value": 5
+													},
+													{
+															"date": "2024-02-25",
+															"value": 130
+													},
+													{
+															"date": "2024-02-29",
+															"value": 160
+													},
+													{
+															"date": "2024-03-12",
+															"value": 40
+													},
+													{
+															"date": "2024-03-16",
+															"value": 5
+													},
+													{
+															"date": "2024-03-18",
+															"value": 90
+													},
+													{
+															"date": "2024-03-21",
+															"value": 50
+													},
+													{
+															"date": "2024-03-23",
+															"value": 5
+													},
+													{
+															"date": "2024-03-25",
+															"value": 130
+													},
+													{
+															"date": "2024-03-29",
+															"value": 160
+													},
+													{
+															"date": "2024-04-12",
+															"value": 40
+													},
+													{
+															"date": "2024-04-16",
+															"value": 5
+													},
+													{
+															"date": "2024-04-18",
+															"value": 90
+													},
+													{
+															"date": "2024-04-21",
+															"value": 50
+													},
+													{
+															"date": "2024-04-23",
+															"value": 5
+													},
+													{
+															"date": "2024-04-25",
+															"value": 130
+													},
+													{
+															"date": "2024-04-29",
+															"value": 160
+													},
+													{
+															"date": "2024-05-12",
+															"value": 40
+													},
+													{
+															"date": "2024-05-16",
+															"value": 5
+													},
+													{
+															"date": "2024-05-18",
+															"value": 90
+													},
+													{
+															"date": "2024-05-21",
+															"value": 50
+													},
+													{
+															"date": "2024-05-23",
+															"value": 5
+													},
+													{
+															"date": "2024-05-25",
+															"value": 130
+													},
+													{
+															"date": "2024-05-29",
+															"value": 160
+													}
+											]'>
+											<div class="heatmap_row">
+												<div class="heatmap_nav">
+													<button class="heatmap_nav-button _prev" type="button">Previous</button>
+													<button class="heatmap_nav-button _next" type="button">Next</button>
+												</div>
+												<p class="heatmap_info">Click/hover on a cell to see the 'clicked' event in action!</p>
+											</div>
+											<div class="heatmap_holder">
+												<div id="heatmap" data-range="5"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section_row">
+						<div class="cta">
+							<div class="cta_box">
+								<h2 class="cta_title">Connect with Anyone.</h2>
+								<div class="cta_text">
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+										et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio dolore magna
+									</p>
+								</div>
+							</div>
+							<div class="cta_box">
+								<div class="search-form">
+									<form>
+										<div class="search-form_box">
+											<input type="text" placeholder="Search for Email Address">
+											<button class="button">Search</button>
+										</div>
+									</form>
+								</div>
+								<p class="cta_info">
+									<svg class="cta_info-icon">
+										<use xlink:href="./img/icons/sprite.svg#exclamation-mark">
+									</svg>
+									<span class="cta_info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section bg-black">
+				<div class="container _width-1070">
+					<div class="section_cols">
+						<div class="section_col">
+							<div class="box">
+								<h2 class="mb-20">Background on <br> the Flint Water Crisis</h2>
+								<div class="box_text _mb-70">
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+										et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio dolore magna
+									</p>
+								</div>
+								<a class="button" href="#">Read more</a>
+							</div>
+						</div>
+						<div class="section_col _align-end">
+							<div class="section_img">
+								<img src="./img/bottles.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section_bg">
+					<img src="./img/texture-2.png" alt="">
+				</div>
+			</section>
+			<section class="section bg-athens-gray">
+				<div class="section_head">
+					<div class="container _width-830">
+						<div class="box text-center">
+							<div class="box_label text-jeans">Exhibits</div>
+							<h2>
+								Lorem ipsum dolore sit amet
+							</h2>
+							<div class="box_text">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+									aeiusmod
+									tempor incididunt
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="articles-grid">
+						<div>
+							<article class="article">
+								<div class="article_img">
+									<img src="./img/img-placeholder.png" alt="">
+								</div>
+								<div class="article_inner">
+									<div class="article_body">
+										<div class="article_tags">
+											<a class="article_tag" href="#">brief</a>
+										</div>
+										<h2 class="article_title">
+											<a href="#">Lorem Ipsume Dolore Sit amet mon tague mon dori amet Dolore</a>
+										</h2>
+									</div>
+									<div class="article_footer">
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#user"></use>
+											</svg>
+											<span class="article_caption">Maximilian Gona</span>
+										</div>
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#clock"></use>
+											</svg>
+											<span class="article_caption">5 mins</span>
+										</div>
+									</div>
+							</article>
+						</div>
+						<div>
+							<article class="article">
+								<div class="article_img">
+									<img src="./img/img-placeholder.png" alt="">
+								</div>
+								<div class="article_inner">
+									<div class="article_body">
+										<div class="article_tags">
+											<a class="article_tag" href="#">brief</a>
+										</div>
+										<h2 class="article_title">
+											<a href="#">Lorem Ipsume Dolore Sit amet mon tague mon dori amet Dolore</a>
+										</h2>
+									</div>
+									<div class="article_footer">
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#user"></use>
+											</svg>
+											<span class="article_caption">Maximilian Gona</span>
+										</div>
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#clock"></use>
+											</svg>
+											<span class="article_caption">5 mins</span>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div>
+							<article class="article">
+								<div class="article_img">
+									<img src="./img/img-placeholder.png" alt="">
+								</div>
+								<div class="article_inner">
+									<div class="article_body">
+										<div class="article_tags">
+											<a class="article_tag" href="#">brief</a>
+										</div>
+										<h2 class="article_title">
+											<a href="#">Lorem Ipsume Dolore Sit amet mon tague mon dori amet Dolore</a>
+										</h2>
+									</div>
+									<div class="article_footer">
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#user"></use>
+											</svg>
+											<span class="article_caption">Maximilian Gona</span>
+										</div>
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#clock"></use>
+											</svg>
+											<span class="article_caption">5 mins</span>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section">
+				<div class="section_head">
+					<div class="container _width-830">
+						<div class="box text-center">
+							<div class="box_label">Essays</div>
+							<h2>
+								Lorem ipsum dolore sit amet
+							</h2>
+							<div class="box_text">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+									aeiusmod
+									tempor incididunt
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="articles-cols">
+						<div class="article-col">
+							<div>
+								<article class="article">
+									<div class="article_img _whide">
+										<img src="./img/img-placeholder.png" alt="">
+									</div>
+									<div class="article_inner">
+										<div class="article_body">
+											<div class="article_tags">
+												<a class="article_tag" href="#">Lorem</a>
+											</div>
+											<h2 class="article_title _xl">
+												<a href="#">Lorem Ipsume Dolore Sit amet mon tague mon dori amet Dolore</a>
+											</h2>
+										</div>
+										<div class="article_footer">
+											<div class="article_box">
+												<svg class="article_icon">
+													<use xlink:href="./img/icons/sprite.svg#user"></use>
+												</svg>
+												<span class="article_caption">Maximilian Gona</span>
+											</div>
+											<div class="article_box">
+												<svg class="article_icon">
+													<use xlink:href="./img/icons/sprite.svg#clock"></use>
+												</svg>
+												<span class="article_caption">5 mins</span>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+						<div class="article-col">
+							<div>
+								<article class="article _horizontal">
+									<div class="article_img">
+										<img src="./img/img-placeholder.png" alt="">
+									</div>
+									<div class="article_inner">
+										<div class="article_body">
+											<div class="article_tags">
+												<a class="article_tag" href="#">Lorem</a>
+											</div>
+											<h2 class="article_title _lg">
+												<a href="#">Lorem Ipsume Dolore Sit amet mon tague mon dori amet Dolore Sit amet mon tague mon
+													dori
+													amet </a>
+											</h2>
+										</div>
+										<div class="article_footer">
+											<div class="article_box">
+												<svg class="article_icon">
+													<use xlink:href="./img/icons/sprite.svg#user"></use>
+												</svg>
+												<span class="article_caption">Maximilian Gona</span>
+											</div>
+											<div class="article_box">
+												<svg class="article_icon">
+													<use xlink:href="./img/icons/sprite.svg#clock"></use>
+												</svg>
+												<span class="article_caption">5 mins</span>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<div>
+								<article class="article _horizontal">
+									<div class="article_img">
+										<img src="./img/img-placeholder.png" alt="">
+									</div>
+									<div class="article_inner">
+										<div class="article_body">
+											<div class="article_tags">
+												<a class="article_tag" href="#">Lorem</a>
+											</div>
+											<h2 class="article_title _lg">
+												<a href="#">Lorem Ipsume Dolore Sit amet mon tague mon dori amet Dolore Sit amet mon tague mon
+													dori
+													amet </a>
+											</h2>
+										</div>
+										<div class="article_footer">
+											<div class="article_box">
+												<svg class="article_icon">
+													<use xlink:href="./img/icons/sprite.svg#user"></use>
+												</svg>
+												<span class="article_caption">Maximilian Gona</span>
+											</div>
+											<div class="article_box">
+												<svg class="article_icon">
+													<use xlink:href="./img/icons/sprite.svg#clock"></use>
+												</svg>
+												<span class="article_caption">5 mins</span>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section bg-mercury">
+				<div class="section_head">
+					<div class="container _width-830">
+						<div class="box text-center">
+							<div class="box_label text-yellow">Community</div>
+							<h2>
+								Lorem ipsum dolore sit amet
+							</h2>
+							<div class="box_text">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+									aeiusmod
+									tempor incididunt
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="articles-grid">
+						<div>
+							<article class="article">
+								<div class="article_img">
+									<img src="./img/img-placeholder.png" alt="">
+								</div>
+								<div class="article_inner">
+									<div class="article_body">
+										<div class="article_tags">
+											<a class="article_tag" href="#">brief</a>
+										</div>
+										<h2 class="article_title">
+											<a href="#">Lorem Ipsume Dolore Sit amet mon tague mon dori amet Dolore</a>
+										</h2>
+									</div>
+									<div class="article_footer">
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#user"></use>
+											</svg>
+											<span class="article_caption">Maximilian Gona</span>
+										</div>
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#clock"></use>
+											</svg>
+											<span class="article_caption">5 mins</span>
+										</div>
+									</div>
+							</article>
+						</div>
+						<div>
+							<article class="article">
+								<div class="article_img">
+									<img src="./img/img-placeholder.png" alt="">
+								</div>
+								<div class="article_inner">
+									<div class="article_body">
+										<div class="article_tags">
+											<a class="article_tag" href="#">brief</a>
+										</div>
+										<h2 class="article_title">
+											<a href="#">Lorem Ipsume Dolore Sit amet mon tague mon dori amet Dolore</a>
+										</h2>
+									</div>
+									<div class="article_footer">
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#user"></use>
+											</svg>
+											<span class="article_caption">Maximilian Gona</span>
+										</div>
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#clock"></use>
+											</svg>
+											<span class="article_caption">5 mins</span>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div>
+							<article class="article">
+								<div class="article_img">
+									<img src="./img/img-placeholder.png" alt="">
+								</div>
+								<div class="article_inner">
+									<div class="article_body">
+										<div class="article_tags">
+											<a class="article_tag" href="#">brief</a>
+										</div>
+										<h2 class="article_title">
+											<a href="#">Lorem Ipsume Dolore Sit amet mon tague mon dori amet Dolore</a>
+										</h2>
+									</div>
+									<div class="article_footer">
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#user"></use>
+											</svg>
+											<span class="article_caption">Maximilian Gona</span>
+										</div>
+										<div class="article_box">
+											<svg class="article_icon">
+												<use xlink:href="./img/icons/sprite.svg#clock"></use>
+											</svg>
+											<span class="article_caption">5 mins</span>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section">
+				<div class="container _width-1070">
+					<div class="box text-center">
+						<div class="box_label text-green">Value Statement </div>
+						<h2 class="fw-400 fs-lg">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio dolore magna
+						</h2>
+					</div>
+				</div>
+			</section>
+		</main>
+		{% include 'src/template/footer.html' %}
+	</div>
+	{% include 'src/template/includes.html' %}
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+@keyframes headerSlideDown {
+	0%   {transform: translateY(-100%)}
+	100% {transform: translateY(0)}
+}
+
+@keyframes headerSlideUp {
+	100%   {transform: translateY(-100%)}
+	0%     {transform: translateY(0)}
+}
+
+.header {
+	position: absolute;
+	top: 0;
+	z-index: 50;
+	width: 100%;
+	flex-shrink: 0;
+
+	&_container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 30px;
+		z-index: 20;
+		padding: 25px 50px;
+		background-color: #fff;
+		border: 1px solid transparent;
+		border-top: none;
+		
+		@include media("<=md") {
+			padding: 15px 25px;
+		}
+	}
+
+	&_logo {
+		display: block;
+		max-width: 220px;
+		width: 100%;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&._fixed {
+		position: fixed;
+		animation: headerSlideDown 0.35s ease both;
+
+		.header_container {
+			border-color: #000;
+		}
+	}
+
+	&._hidden {
+		position: fixed;
+		animation: headerSlideUp 0.35s ease both;
+	}
+}

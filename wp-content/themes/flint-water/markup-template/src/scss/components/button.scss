@@ -1,0 +1,29 @@
+.button {
+	display: inline-block;
+	min-width: 165px;
+	text-align: center;
+	padding: 15px 25px;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	background-color: var(--orange);
+	border: 1px solid #000;
+	transition: var(--transition);
+	cursor: pointer;
+	text-decoration: none;
+
+	@include media("<=sm") {
+		font-size: 16px;
+	}
+
+	&:hover {
+		color: #fff;
+		background-color: lighten($color: #ff551f, $amount: 10);
+	}
+}
+
+.btn {
+	font-size: 16px;
+}

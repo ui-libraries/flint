@@ -1,0 +1,90 @@
+.cta {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	border: 1px solid #000;
+
+	@include media("<=lg") {
+		grid-template-columns: 1fr;
+	}
+
+	&_box {
+		position: relative;
+		padding: 50px 85px;
+
+		@include media("<=xl") {
+			padding: 50px;
+		}
+
+		@include media("<=sm") {
+			padding: 30px 25px;
+		}
+
+		&:after {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			right: 0;
+			top: 35px;
+			bottom: 35px;
+			background-color: #000;
+			width: 1px;
+
+			@include media("<=lg") {
+				top: initial;
+				bottom: 0;
+				height: 1px;
+				width: 50%;
+				left: 50%;
+				translate: -50% 0;
+			}
+		}
+
+		&:last-child:after {
+			content: none;
+		}
+	}
+
+	&_title {
+		line-height: 0.8;
+		color: var(--orange);
+		margin-bottom: 25px;
+
+		@include media("<=sm") {
+			font-size: 30px;
+			margin-bottom: 15px;
+		}
+	}
+
+	&_text,
+	&_info {
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&_info {
+		position: relative;
+		color: var(--grey);
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		&-icon {
+			position: absolute;
+			top: 0.15em;
+			left: 0;
+			width: 15px;
+			height: 15px;
+		}
+
+		&-text {
+			padding-left: 25px;
+			display: inline-block;
+		}
+	}
+
+	.search-form {
+		margin-bottom: 15px;
+	}
+}

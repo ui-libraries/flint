@@ -1,0 +1,270 @@
+// variable - needed for color control on menu
+$bg-for-header-menu: #f9f9f9;
+
+.nav-opener {
+	display: none;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	background-color: transparent;
+	outline: none;
+	border: none;
+
+	@include media("<desktop") {
+		display: block;
+	}
+
+	&:before,
+	&:after,
+	span {
+		background-color: var(--base-text-color);
+		border-radius: 3px;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		height: 3px;
+		margin-top: -1.5px;
+		transition: all 0.2s linear;
+	}
+
+	&:before,
+	&:after {
+		content: "";
+		top: 15%;
+	}
+
+	&:after {
+		top: 85%;
+	}
+
+	&:hover {
+		opacity: 0.9;
+	}
+}
+
+.nav-drop {
+	transition: all 0.25s linear;
+
+	@include media("<desktop") {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+		max-height: 0;
+	}
+}
+
+.nav-active {
+	overflow: hidden;
+	.nav-opener {
+		span {
+			opacity: 0;
+		}
+
+		&:before,
+		&:after {
+			transform: rotate(45deg);
+			top: 50%;
+		}
+
+		&:after {
+			transform: rotate(-45deg);
+		}
+	}
+
+	.nav-drop {
+		@include media("<desktop") {
+			max-height: 4000px;
+			padding-bottom: 10px;
+		}
+	}
+
+	.nav {
+		@include media("<desktop") {
+			transform: translateY(0);
+		}
+	}
+}
+
+.nav {
+	transition: all 0.25s linear;
+
+	@include media("<desktop") {
+		transform: translateY(-100%);
+		padding: 10px 0;
+		box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.2);
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+
+		@include media("<desktop") {
+			display: block;
+		}
+	}
+
+	li {
+		position: relative;
+		padding: 0;
+		margin: 0;
+
+		&:after,
+		&:before {
+			display: none;
+		}
+
+		> ul {
+			position: absolute;
+			display: none;
+			background-color: $bg-for-header-menu;
+			box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+
+			@include media("<desktop") {
+				box-shadow: none;
+			}
+
+			@include media("<desktop") {
+				position: static;
+			}
+
+			a {
+				color: inherit;
+			}
+
+			.sub-arrow {
+				border-style: dashed dashed dashed solid;
+				border-color: transparent transparent transparent var(--base-text-color);
+			}
+		}
+
+		&.nav-sm-reverse>ul:before {
+			left: auto;
+			right: 17px;
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+		padding: 10px 15px;
+		color: inherit;
+
+		&:hover,
+		&.highlighted {
+			background-color: darken($bg-for-header-menu, 5%);
+		}
+
+		&.highlighted {
+			.sub-arrow {
+				&:before {
+					@include media("<desktop") {
+						content: "-";
+					}
+				}
+			}
+		}
+
+		&.has-submenu {
+			padding-right: 25px;
+		}
+
+		.sub-arrow {
+			position: absolute;
+			top: 50%;
+			right: 5px;
+			width: 0;
+			height: 0;
+			margin: 0;
+			border-width: 5px;
+			transform: translateY(-50%);
+			border-style: solid dashed dashed dashed;
+			border-color: var(--base-text-color) transparent transparent transparent;
+
+			@include media("<desktop") {
+				width: 25px;
+				height: 25px;
+				right: 15px;
+				border: 0;
+				background-color: darken($bg-for-header-menu, 30%);
+				border-radius: 4px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 0;
+			}
+
+			&:before {
+				@include media("<desktop") {
+					content: "+";
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.has-mega-menu {
+		position: static !important;
+
+		.mega-menu {
+			margin-left: 0 !important;
+			right: 0 !important;
+			width: auto !important;
+			max-width: none !important;
+
+			li {
+				display: flex;
+
+				@include media("<desktop") {
+					display: block;
+				}
+			}
+
+			.col {
+				width: 33.33%;
+				padding: 15px;
+
+				@include media("<desktop") {
+					width: 100%;
+				}
+
+				ul {
+					position: static;
+					display: block;
+					margin: 0;
+					padding: 0 0 0 20px;
+					background: transparent;
+				}
+
+				li {
+					color: inherit;
+					display: list-item;
+					list-style-type: disc;
+					margin: 0 0 0.5em;
+				}
+
+				a {
+					color: inherit;
+					display: inline;
+					padding: 0;
+
+					&:hover {
+						opacity: 0.7;
+						background: transparent;
+					}
+				}
+			}
+		}
+	}
+}
+
+// use this class to active point meny
+.current-menu-item {
+	& > a {
+		opacity: 0.7;
+	}
+}

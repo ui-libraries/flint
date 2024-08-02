@@ -1,0 +1,14 @@
+@import "vendors/normalize";
+@import "vendors/include-media";
+@import "root";
+@import "base/breakpoints";
+@import "base/wp-reset";
+@import "base/utilites";
+@import "base/fonts";
+@import "base/typography";
+@import "base/common";
+@import "vendors/aos.min";
+@import "vendors/flatpickr";
+@import "vendors/heatmap";
+
+@import "components/*";

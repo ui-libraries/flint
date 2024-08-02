@@ -1,0 +1,71 @@
+.box {
+	position: relative;
+	z-index: 20;
+
+	&_label {
+		font-weight: 500;
+		text-transform: uppercase;
+		color: var(--orange);
+		margin-bottom: 10px;
+
+		@include media("<=md") {
+			font-size: 14px;
+		}
+	}
+
+	&_text {
+		margin-bottom: 25px;
+		
+		p {
+			margin-bottom: 20px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&._mb-40 {
+			margin-bottom: 40px;
+
+			@include media("<=lg") {
+				margin-bottom: 30px;
+			}
+		}
+
+		&._mb-70 {
+			margin-bottom: clamp(30px, 5vw, 70px);
+		}
+	}
+
+	&_search {
+		max-width: 615px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+  h1 {
+    margin-bottom: 55px;
+
+		@include media("<=lg") {
+      margin-bottom: 35px;
+    }
+  }
+
+	h2,
+	.h2 {
+		margin-bottom: 10px;
+
+		a {
+			text-decoration: none;
+			color: inherit;
+
+			&:hover {
+				color: var(--orange);
+			}
+		}
+	}
+
+	& > :last-child {
+		margin-bottom: 0;
+	}
+}

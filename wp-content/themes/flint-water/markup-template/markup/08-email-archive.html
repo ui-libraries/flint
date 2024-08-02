@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Search Email</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+	<link media="all" rel="stylesheet" href="css/style.css?_v=20240520134444">
+</head>
+
+<body>
+	<div class="wrapper _overflow-auto _pt-100">
+		<header class="header">
+			<div class="container">
+				<div class="header_container">
+					<a href="#" class="header_logo">
+						<img src="./img/logo.svg" alt="logo">
+					</a>
+					<button class="menu-opener">
+						<span></span>
+					</button>
+					<div class="menu-drop">
+						<nav class="menu-drop__wrap">
+							<ul class="menu">
+								<li>
+									<a href="#">Archive</a>
+								</li>
+								<li>
+									<a href="#">Research</a>
+								</li>
+								<li>
+									<a href="#">About us</a>
+								</li>
+								<li>
+									<a href="#">Contribute</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="section">
+			<div class="container">
+				<div class="row mb-3">
+					<div class="col">
+						<h3>Search the Flint Water Crisis Email Archive</h3>
+						<table id="searchTable" class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Search For </th>
+									<td colspan="2"><button id="addRow" class="btn btn-primary">Add Search Field</button></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="searchRow">
+									<td><input type="text" placeholder="Enter search term..." class="form-control"></td>
+									<td>
+										<select class="form-control">
+											<option value="sender/receiver">Sender/Receiver</option>
+											<option value="subject">Subject Line</option>
+											<option value="keyword">Keyword</option>
+										</select>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<label>Minimum date:</label>
+						<input type="text" id="min" name="min" class="form-control" placeholder="2011-01-01">
+					</div>
+					<div class="col-md-6">
+						<label>Maximum date:</label>
+						<input type="text" id="max" name="max" class="form-control" placeholder="2020-01-01">
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col">
+						<button id="searchBtn" class="btn btn-success">Search</button>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col">
+						<canvas id="emailChart" width="400" height="200"></canvas>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<table id="emailTable" class="display table table-bordered">
+							<thead>
+								<tr>
+									<th>Sender</th>
+									<th>Receiver</th>
+									<th>Subject Line</th>
+									<th>Timestamp</th>
+									<th>PDF</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Data will go here -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="footer_body">
+				<div class="container">
+					<div class="footer_content">
+						<a class="footer_logo" href="#">
+							<img src="./img/logo-white.svg" alt="">
+						</a>
+						<nav>
+							<ul class="footer_nav list-reset">
+								<li>
+									<a href="#">Archive</a>
+								</li>
+								<li>
+									<a href="#">Research</a>
+								</li>
+								<li>
+									<a href="#">About Us</a>
+								</li>
+								<li>
+									<a href="#">Contribute</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="socials">
+							<a class="socials_link" href="#" target="_blank">
+								<svg>
+									<use xlink:href="./img/icons/sprite.svg#facebook"></use>
+								</svg>
+							</a>
+							<a class="socials_link" href="#" target="_blank">
+								<svg>
+									<use xlink:href="./img/icons/sprite.svg#instagram"></use>
+								</svg>
+							</a>
+							<a class="socials_link" href="#" target="_blank">
+								<svg>
+									<use xlink:href="./img/icons/sprite.svg#linkedIn"></use>
+								</svg>
+							</a>
+							<a class="socials_link" href="#" target="_blank">
+								<svg>
+									<use xlink:href="./img/icons/sprite.svg#x"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer_copy">
+				<div class="container">
+					<p>© 2024 - Flint Water. All rights reserved</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- Optional Bootstrap JS, and Popper.js before your other scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="js/bundle.js" charset="utf-8"></script>
+</body>
+
+</html>
