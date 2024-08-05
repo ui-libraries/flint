@@ -9,11 +9,20 @@ jQuery(document).ready(function($) {
         let email_from = $('#input-5').val()
         let email_to = $('#input-6').val()
         let email_body = $('#textarea-1').val()
+        let page = 1  // Start with the first page
+        let pageSize = 50  // Number of records per page, can be adjusted
 
         let filters = []
 
         if (search_email) filters.push(`recipient_to,cs,${encodeURIComponent(search_email)}`)
-        if (date_from && date_to) filters.push(`timestamp,bt,${encodeURIComponent(date_from)},${encodeURIComponent(date_to)}`)
+        
+        // Convert dates to Unix timestamps if provided
+        if (date_from && date_to) {
+            let date_from_timestamp = Math.floor(new Date(date_from).getTime() / 1000)
+            let date_to_timestamp = Math.floor(new Date(date_to).getTime() / 1000)
+            filters.push(`timestamp,bt,${date_from_timestamp},${date_to_timestamp}`)
+        }
+
         if (subject) filters.push(`subject,cs,${encodeURIComponent(subject)}`)
         if (email_from) filters.push(`sender,cs,${encodeURIComponent(email_from)}`)
         if (email_to) filters.push(`recipient_to,cs,${encodeURIComponent(email_to)}`)
@@ -24,22 +33,49 @@ jQuery(document).ready(function($) {
             apiUrl += '?filter=' + filters.join(',')
         }
 
-        console.log('API URL:', apiUrl)
+        // Add order and pagination parameters to the URL
+        apiUrl += '&order=id&page=' + page + ',' + pageSize
 
-        // Send the form data to the API
-        $.ajax({
-            url: apiUrl,
-            type: 'GET',
-            success: function(response) {
-                console.log('API Response:', response)
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error)
-                console.error('Status:', status)
-                console.error('Response Text:', xhr.responseText)
-                console.error('Full Response:', xhr)
-            }
-        })
+        console.log('API URL:', apiUrl)
+        console.log('Filters:', filters)
+
+        // Function to fetch data
+        function fetchData(url) {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                headers: {
+                    // Add any required headers here
+                    // 'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+                    // 'Content-Type': 'application/json'
+                },
+                success: function(response) {
+                    console.log('API Response:', response)
+                    if (response.records.length === 0) {
+                        console.log('No records found')
+                    } else {
+                        // Process the data here
+                        console.log('Fetched records:', response.records)
+
+                        // Check if there are more pages
+                        if (response.records.length === pageSize) {
+                            page++
+                            let nextPageUrl = apiUrl.replace(/page=\d+,\d+/, `page=${page},${pageSize}`)
+                            fetchData(nextPageUrl)
+                        }
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error)
+                    console.error('Status:', status)
+                    console.error('Response Text:', xhr.responseText)
+                    console.error('Full Response:', xhr)
+                }
+            })
+        }
+
+        // Initial data fetch
+        fetchData(apiUrl)
     })
 })
 
