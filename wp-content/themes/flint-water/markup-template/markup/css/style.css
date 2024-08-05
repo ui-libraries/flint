@@ -5221,6 +5221,36 @@ select.form-control {
 	color: #000;
 	text-decoration: none;
 }
+.email-result {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.email-result h3 {
+    margin-top: 0;
+}
+
+.email-result p {
+    margin: 5px 0;
+}
+
+#pagination button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pagination button:hover {
+    background-color: #0056b3;
+}
+
 @media (max-width: 1200px) {
 	.articles-cols {
 		grid-template-columns: 50% 1fr;

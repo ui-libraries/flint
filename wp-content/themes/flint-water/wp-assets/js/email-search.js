@@ -51,17 +51,40 @@ jQuery(document).ready(function($) {
                 },
                 success: function(response) {
                     console.log('API Response:', response)
-                    if (response.records.length === 0) {
-                        console.log('No records found')
-                    } else {
-                        // Process the data here
-                        console.log('Fetched records:', response.records)
+                    let resultsContainer = $('#search-results')
+                    let paginationContainer = $('#pagination')
+                    
+                    // Clear previous results and pagination
+                    if (page === 1) {
+                        resultsContainer.empty()
+                        paginationContainer.empty()
+                    }
 
-                        // Check if there are more pages
+                    if (response.records.length === 0 && page === 1) {
+                        resultsContainer.append('<p>No records found</p>')
+                    } else {
+                        // Append the new results
+                        response.records.forEach(record => {
+                            let resultHtml = `
+                                <div class="email-result">
+                                    <h3>${record.subject}</h3>
+                                    <p><strong>From:</strong> ${record.sender}</p>
+                                    <p><strong>To:</strong> ${record.recipient_to}</p>
+                                    <p><strong>Date:</strong> ${new Date(record.timestamp * 1000).toLocaleString()}</p>
+                                    <p>${record.body_text}</p>
+                                </div>
+                            `
+                            resultsContainer.append(resultHtml)
+                        })
+
+                        // If there are more pages, show the "Load More" button
                         if (response.records.length === pageSize) {
-                            page++
-                            let nextPageUrl = apiUrl.replace(/page=\d+,\d+/, `page=${page},${pageSize}`)
-                            fetchData(nextPageUrl)
+                            let loadMoreButton = $('<button>Load More</button>').on('click', function() {
+                                page++
+                                let nextPageUrl = apiUrl.replace(/page=\d+,\d+/, `page=${page},${pageSize}`)
+                                fetchData(nextPageUrl)
+                            })
+                            paginationContainer.append(loadMoreButton)
                         }
                     }
                 },

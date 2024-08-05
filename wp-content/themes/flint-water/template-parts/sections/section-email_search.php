@@ -12,13 +12,13 @@
                             <div>
                                 <label for="date-from">Range of date</label>
                                 <div class="form_icon _calendar">
-                                    <input id="date-from" name="date_from" type="text" placeholder="01/01/2010">
+                                    <input id="date-from" name="date_from" type="text" placeholder="01/01/2015">
                                 </div>
                             </div>
                             <div>
                                 <label for="date-to" class="form_label-hidden">Range of date</label>
                                 <div class="form_icon _calendar">
-                                    <input id="date-to" name="date_to" type="text" placeholder="01/01/2020">
+                                    <input id="date-to" name="date_to" type="text" placeholder="12/12/2015">
                                 </div>
                             </div>
                         </div>
