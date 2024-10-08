@@ -1,64 +1,77 @@
-<section class="section _p-0 _overlap-top">
-    <div class="container">
-        <div class="form" data-aos="fade-up">
-            <form id="email-search-form" method="POST">
-                <div class="form_cols">
-                    <div class="form_col _half">
-                        <div>
-                            <label for="input-1">Search Email</label>
-                            <input id="input-1" name="search_email" type="text" placeholder="">
-                        </div>
-                        <div class="form_row range-datepicker">
-                            <div>
-                                <label for="date-from">Range of date</label>
-                                <div class="form_icon _calendar">
-                                    <input id="date-from" name="date_from" type="text" placeholder="01/01/2015">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="date-to" class="form_label-hidden">Range of date</label>
-                                <div class="form_icon _calendar">
-                                    <input id="date-to" name="date_to" type="text" placeholder="12/12/2015">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form_col _half">
-                        <div>
-                            <label for="input-4">Subject</label>
-                            <input id="input-4" name="subject" type="text" placeholder="Subject">
-                        </div>
-                        <div class="form_row">
-                            <div>
-                                <label for="input-5">From</label>
-                                <input id="input-5" name="email_from" type="text" placeholder="Enter Email Here">
-                            </div>
-                            <div>
-                                <label for="input-6">To</label>
-                                <input id="input-6" name="email_to" type="text" placeholder="Enter Email Here">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form_col">
-                        <div>
-                            <label for="textarea-1">Has the words</label>
-                            <textarea id="textarea-1" name="email_body" placeholder=""></textarea>
-                        </div>
-                    </div>
-                    <div class="form_col">
-                        <div>
-                            <button class="button" type="submit">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col">
+      <h3>Search the Flint Water Crisis Email Archive</h3>
+      <form id="email-search-form">
+        <table id="searchTable" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Search For 
+                <td colspan="2">
+                  <button id="addRow" type="button" class="btn btn-primary">Add Search Field</button>
+                </td>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="searchRow">
+              <td><input type="text" placeholder="Enter search term..." class="form-control" /></td>
+              <td>
+                <select class="form-control">
+                  <option value="sender/receiver">Sender/Receiver</option>
+                  <option value="subject">Subject Line</option>
+                  <option value="keyword">Keyword</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="min">Minimum date:</label>
+            <input type="text" id="min" name="min" class="form-control" placeholder="2011-01-01">
+          </div>
+          <div class="col-md-6">
+            <label for="max">Maximum date:</label>
+            <input type="text" id="max" name="max" class="form-control" placeholder="2020-01-01">
+          </div>
         </div>
-    </div>
-</section>
-<section class="section _pt-60">
-    <div class="container">
-        <div id="search-results" class="posts-text-grid"></div>
-        <nav id="pagination" class="pagination _center"></nav>
-    </div>
-</section>
 
+        <div class="row mb-3">
+          <div class="col">
+            <button id="searchBtn" type="submit" class="btn btn-success">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+      <canvas id="emailChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table id="emailTable" class="display table table-bordered">
+        <thead>
+          <tr>
+            <th>Sender</th>
+            <th>Receiver</th>
+            <th>Subject Line</th>
+            <th>Timestamp</th>
+            <th>PDF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data will go here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="posts-text-grid"></div>
+<nav id="pagination" class="pagination _center"></nav>

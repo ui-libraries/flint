@@ -582,81 +582,108 @@ function initRangeDatepicker() {
 }
 
 function initCalendarHeatmap() {
-	const heatmapElement = document.querySelectorAll('.heatmap');
+    const heatmapElement = document.querySelectorAll('.heatmap');
 
-	const plugins = [
-		[
-			Tooltip,
-			{
-				text: function (date, value, dayjsDate) {
-					return (
-						(value ? value + ' emails' : 'No emails') + ' on ' + dayjsDate.format('LL')
-					);
-				},
-			},
-		],
-	]
+    const plugins = [
+        [
+            Tooltip,
+            {
+                text: function (date, value, dayjsDate) {
+                    return (
+                        (value ? value + ' emails' : 'No emails') + ' on ' + dayjsDate.format('LL')
+                    );
+                },
+            },
+        ],
+    ]
 
-	heatmapElement.forEach(item => {
-		if(!item.dataset.dates) return;
+    heatmapElement.forEach(item => {
+        if (!item.dataset.dates) return;
 
-		const data = JSON.parse(item.dataset.dates);
-		const heatmap = item.querySelector('#heatmap')
-		const cal = new CalHeatmap();
-		const navButtonNext = item.querySelector('.heatmap_nav-button._next');
-		const navButtonPrev = item.querySelector('.heatmap_nav-button._prev');
+        const data = JSON.parse(item.dataset.dates);
+        const heatmap = item.querySelector('#heatmap');
+        const cal = new CalHeatmap();
 
-		const options = {
-			data: {
-				source: data,
-				x: 'date',
-				y: d => +d['value'],
-			},
-			range: 12,
-			date: { start: new Date('2024-01-01') },
-			scale: {
-				color: {
-					range: ['#a1cbac', '#1f700f'],
-					domain: [0, 160],
-				},
-			},
-			domain: {
-				type: 'month',
-				gutter: 25,
-				label: {
-					text: 'MMM',
-					offset: {
-						y: 9
-					}
-				}
-			},
-			subDomain: {
-				type: 'day',
-				radius: 2,
-				label: 'DD',
-				width: 12,
-				height: 12,
-				gutter: 3,
-				color: '#fff'
-			},
-		};
+        // Function to paint the heatmap with the selected year
+        function paintHeatmap(year) {
+            const startOfYear = new Date(`${year}-01-01`);
 
-		cal.paint({
-			...options,
-			itemSelector: heatmap,
-		}, plugins);
+            const options = {
+                data: {
+                    source: data,
+                    x: 'date',
+                    y: d => +d['value'],
+                },
+                range: 12,
+                date: { start: startOfYear },  // Use the selected year's start date
+                scale: {
+                    color: {
+                        range: ['#a1cbac', '#1f700f'],
+                        domain: [0, 160],
+                    },
+                },
+                domain: {
+                    type: 'month',
+                    gutter: 25,
+                    label: {
+                        text: 'MMM',
+                        offset: {
+                            y: 9,
+                        },
+                    },
+                },
+                subDomain: {
+                    type: 'day',
+                    radius: 2,
+                    label: 'DD',
+                    width: 12,
+                    height: 12,
+                    gutter: 3,
+                    color: '#fff',
+                },
+            };
 
-		navButtonNext.addEventListener('click', e => {
-			e.preventDefault();
-			cal.next()
-		})
+            // Repaint the heatmap with the new start year
+            cal.paint({
+                ...options,
+                itemSelector: heatmap,
+            }, plugins);
+        }
 
-		navButtonPrev.addEventListener('click', e => {
-			e.preventDefault();
-			cal.previous()
-		})
-	})
+        // Initial paint for the default year (you can set a default year here if needed)
+        paintHeatmap('2010');
+
+        // Event listeners for next and previous navigation buttons
+        const navButtonNext = item.querySelector('.heatmap_nav-button._next');
+        const navButtonPrev = item.querySelector('.heatmap_nav-button._prev');
+
+        navButtonNext.addEventListener('click', e => {
+            e.preventDefault();
+            cal.next();
+        });
+
+        navButtonPrev.addEventListener('click', e => {
+            e.preventDefault();
+            cal.previous();
+        });
+
+        // Handle year selection to scroll heatmap to the correct year
+        const yearDropdown = document.querySelector('select');  // The year dropdown
+
+        yearDropdown.addEventListener('change', function () {
+            const selectedYear = this.value;
+            console.log(`Year selected: ${selectedYear}`);  // Check if this logs the correct year
+            if (selectedYear) {
+                // Repaint the heatmap with the selected year's start date
+                paintHeatmap(selectedYear);
+            }
+        });
+    });
 }
+
+
+
+
 
 //-------- -------- -------- --------
 //-------- included js libs start
