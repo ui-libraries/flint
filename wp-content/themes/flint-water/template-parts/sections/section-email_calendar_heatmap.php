@@ -64,25 +64,6 @@ foreach ($date_counts as $date => $count) {
 
 <section class="section">
     <div class="section_head" data-aos="fade-up">
-        <div class="container _width-830">
-            <div class="box text-center">
-
-                <?php am_the_sub_field('subtitle', '<div class="box_label">', '</div>'); ?>
-                <?php am_the_sub_field('title', '<h2>', '</h2>'); ?>
-                <?php am_the_sub_field('description', '<div class="box_text"><p>', '</p></div>'); ?>
-
-                <div class="box_search">
-                    <div class="search-form">
-                        <form>
-                            <div class="search-form_box">
-                                <input type="text" placeholder="Search Email Chart">
-                                <button class="button">Search</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="container">
 
@@ -100,7 +81,10 @@ foreach ($date_counts as $date => $count) {
                     <?php } ?>
                 </div>
                 <div class="info_box">
-                    <select>
+                    <?php am_the_sub_field('subtitle', '<div class="box_label">', '</div>'); ?>
+                    <?php am_the_sub_field('title', '<h2>', '</h2>'); ?>
+                    <?php am_the_sub_field('description', '<div class="box_text"><p>', '</p></div>'); ?>
+                    <select id="heatmap_year">
                         <option value="" disabled="" selected="">Date</option>
                         <option value="2010">2010</option>
                         <option value="2011">2011</option>

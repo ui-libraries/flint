@@ -39,33 +39,3 @@ Tags: custom-menu, theme-options
     background-color: #0056b3;
 }
 
-/* Add this CSS to your stylesheet */
-.email-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.email-table th, .email-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.email-table th {
-    background-color: #f2f2f2;
-    text-align: left;
-}
-
-.email-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.email-table tr:hover {
-    background-color: #ddd;
-}
-
-.email-table td {
-    vertical-align: top;
-}
-
-
