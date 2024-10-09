@@ -595,7 +595,7 @@ function initCalendarHeatmap() {
                 },
             },
         ],
-    ]
+    ];
 
     heatmapElement.forEach(item => {
         if (!item.dataset.dates) return;
@@ -604,7 +604,6 @@ function initCalendarHeatmap() {
         const heatmap = item.querySelector('#heatmap');
         const cal = new CalHeatmap();
 
-        // Function to paint the heatmap with the selected year
         function paintHeatmap(year) {
             const startOfYear = new Date(`${year}-01-01`);
 
@@ -615,7 +614,7 @@ function initCalendarHeatmap() {
                     y: d => +d['value'],
                 },
                 range: 12,
-                date: { start: startOfYear },  // Use the selected year's start date
+                date: { start: startOfYear },
                 scale: {
                     color: {
                         range: ['#a1cbac', '#1f700f'],
@@ -643,43 +642,155 @@ function initCalendarHeatmap() {
                 },
             };
 
-            // Repaint the heatmap with the new start year
+            // Paint the heatmap and attach the click event listener
             cal.paint({
                 ...options,
                 itemSelector: heatmap,
-            }, plugins);
+            }, plugins).then(() => {
+                cal.on('click', function (event, date) {
+					const formattedDate = dayjs(date).utc().format('YYYY-MM-DD');
+					console.log(`Date clicked: ${formattedDate}`);
+				
+					// Convert the clicked date to start and end timestamps in UTC
+					const startOfDay = dayjs(date).utc().startOf('day').unix();
+					const endOfDay = dayjs(date).utc().endOf('day').unix();
+				
+					// Call the function to fetch data from the API
+					fetchDataForDate(startOfDay, endOfDay);
+				});
+				
+            });
         }
 
-        // Initial paint for the default year (you can set a default year here if needed)
+        // Function to fetch data from the API
+        function fetchDataForDate(startTimestamp, endTimestamp) {
+			const apiUrl = `https://fwcpublicarchive.lib.uiowa.edu/api/api.php/records/emails?filter=timestamp,bt,${startTimestamp},${endTimestamp}`;
+		
+			fetch(apiUrl)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error(`API request failed with status ${response.status}`);
+					}
+					return response.json();
+				})
+				.then(data => {
+					console.log('Data fetched from API:', data);
+					displayDataInTable(data.records);
+				})
+				.catch(error => {
+					console.error('Error fetching data:', error);
+				});
+		}
+		
+
+        // Initial paint for the default year
         paintHeatmap('2010');
 
-        // Event listeners for next and previous navigation buttons
+        // Navigation buttons
         const navButtonNext = item.querySelector('.heatmap_nav-button._next');
         const navButtonPrev = item.querySelector('.heatmap_nav-button._prev');
 
         navButtonNext.addEventListener('click', e => {
             e.preventDefault();
-            cal.next();
+            cal.next().then(() => {
+                cal.on('click', function (event, date) {
+                    const formattedDate = dayjs(date).format('YYYY-MM-DD');
+                    console.log(`Date clicked: ${formattedDate}`);
+                    const startOfDay = dayjs(date).startOf('day').unix();
+                    const endOfDay = dayjs(date).endOf('day').unix();
+                    fetchDataForDate(startOfDay, endOfDay);
+                });
+            });
         });
 
         navButtonPrev.addEventListener('click', e => {
             e.preventDefault();
-            cal.previous();
+            cal.previous().then(() => {
+                cal.on('click', function (event, date) {
+                    const formattedDate = dayjs(date).format('YYYY-MM-DD');
+                    console.log(`Date clicked: ${formattedDate}`);
+                    const startOfDay = dayjs(date).startOf('day').unix();
+                    const endOfDay = dayjs(date).endOf('day').unix();
+                    fetchDataForDate(startOfDay, endOfDay);
+                });
+            });
         });
 
-        // Handle year selection to scroll heatmap to the correct year
-        const yearDropdown = document.querySelector('select');  // The year dropdown
+        const yearDropdown = document.querySelector('select');
 
         yearDropdown.addEventListener('change', function () {
             const selectedYear = this.value;
-            console.log(`Year selected: ${selectedYear}`);  // Check if this logs the correct year
             if (selectedYear) {
-                // Repaint the heatmap with the selected year's start date
                 paintHeatmap(selectedYear);
             }
         });
     });
 }
+
+
+
+function displayDataInTable(records) {
+    // Get the container div
+    const container = document.getElementById('email-table-container');
+    container.innerHTML = ''; 
+
+    // Check if records are available
+    if (!records || records.length === 0) {
+        container.innerHTML = '<p>No emails found for this date.</p>';
+        return;
+    }
+
+    // Create the table element
+    const table = document.createElement('table');
+    table.classList.add('email-table'); 
+
+    // Create the table header
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+
+    const columns = [
+        { header: 'ID', field: 'id' },
+        { header: 'Date', field: 'timestamp' },
+        { header: 'Sender', field: 'sender' },
+        { header: 'Recipient', field: 'recipient_to' },
+        { header: 'Subject', field: 'subject' }
+    ];
+
+    // Create header cells
+    columns.forEach(col => {
+        const th = document.createElement('th');
+        th.textContent = col.header;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+    const tbody = document.createElement('tbody');
+
+    records.forEach(record => {
+        const row = document.createElement('tr');
+
+        columns.forEach(col => {
+            const td = document.createElement('td');
+
+            // Format the timestamp
+            if (col.field === 'timestamp') {
+                const date = new Date(record[col.field] * 1000);
+                td.textContent = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+            } else {
+                td.textContent = record[col.field];
+            }
+
+            row.appendChild(td);
+        });
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    container.appendChild(table);
+}
+
+
 
 
 
