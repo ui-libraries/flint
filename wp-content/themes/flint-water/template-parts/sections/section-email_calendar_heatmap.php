@@ -84,16 +84,6 @@ foreach ($date_counts as $date => $count) {
                     <?php am_the_sub_field('subtitle', '<div class="box_label">', '</div>'); ?>
                     <?php am_the_sub_field('title', '<h2>', '</h2>'); ?>
                     <?php am_the_sub_field('description', '<div class="box_text"><p>', '</p></div>'); ?>
-                    <select id="heatmap_year">
-                        <option value="" disabled="" selected="">Date</option>
-                        <option value="2010">2010</option>
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                    </select>
                 </div>
             </div>
             <div class="info_body">
@@ -101,6 +91,16 @@ foreach ($date_counts as $date => $count) {
                     <div class="heatmap" data-dates='<?php echo json_encode($sample_heatmap_data); ?>'>
                         <div class="heatmap_row">
                             <div class="heatmap_nav">
+                                <select id="heatmap_year">
+                                    <option value="" disabled="" selected="">Date</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                </select>
                                 <button class="heatmap_nav-button _prev" type="button">Previous</button>
                                 <button class="heatmap_nav-button _next" type="button">Next</button>
                             </div>

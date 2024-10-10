@@ -753,7 +753,8 @@ function displayDataInTable(records) {
         { header: 'Date', field: 'timestamp' },
         { header: 'Sender', field: 'sender' },
         { header: 'Recipient', field: 'recipient_to' },
-        { header: 'Subject', field: 'subject' }
+        { header: 'Subject', field: 'subject' },
+		{ header: 'PDF', field: 'bookmark_url' },
     ];
 
     // Create header cells
@@ -770,18 +771,35 @@ function displayDataInTable(records) {
         const row = document.createElement('tr');
 
         columns.forEach(col => {
-            const td = document.createElement('td');
-
-            // Format the timestamp
-            if (col.field === 'timestamp') {
-                const date = new Date(record[col.field] * 1000);
-                td.textContent = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-            } else {
-                td.textContent = record[col.field];
-            }
-
-            row.appendChild(td);
-        });
+			const td = document.createElement('td');
+		
+			if (col.field === 'timestamp') {
+				// Format the timestamp
+				const date = new Date(record[col.field] * 1000)
+				td.textContent = date.toLocaleDateString() + ' ' + date.toLocaleTimeString()
+			} else if (col.field === 'bookmark_url') {
+				// Transform the URL and display as an icon
+				const bookmarkUrl = record[col.field].replace('http://s-lib007.lib.uiowa.edu/flint/', 'https://fwcpublicarchive.lib.uiowa.edu/');
+				
+				const link = document.createElement('a');
+				link.href = bookmarkUrl;
+				link.target = '_blank'; // Open in new tab
+				
+				const icon = document.createElement('img');
+				icon.src = 'https://fwcpublicarchive.lib.uiowa.edu/wp-content/uploads/2024/10/file.png';
+				icon.alt = 'PDF Bookmark';
+				icon.style.width = '20px'; // Set icon size
+				icon.style.height = '20px';
+		
+				link.appendChild(icon);
+				td.appendChild(link);
+			} else {
+				td.textContent = record[col.field];
+			}
+		
+			row.appendChild(td);
+		});
+		
 
         tbody.appendChild(row);
     });
