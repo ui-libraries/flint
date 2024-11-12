@@ -5,7 +5,7 @@ date_default_timezone_set('UTC'); // Set default timezone to UTC
 $date_counts = array();
 
 // Define the years and months to fetch data for
-$years = range(2010, 2016); // From 2010 to 2016
+$years = range(2014, 2016);
 
 foreach ($years as $year) {
     for ($month = 1; $month <= 12; $month++) {
@@ -92,12 +92,7 @@ foreach ($date_counts as $date => $count) {
                         <div class="heatmap_row">
                             <div class="heatmap_nav">
                                 <select id="heatmap_year">
-                                    <option value="" disabled="" selected="">Date</option>
-                                    <option value="2010">2010</option>
-                                    <option value="2011">2011</option>
-                                    <option value="2012">2012</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2014">2014</option>
+                                    <option value="2014" selected>2014</option>
                                     <option value="2015">2015</option>
                                     <option value="2016">2016</option>
                                 </select>
@@ -119,3 +114,11 @@ foreach ($date_counts as $date => $count) {
     </div>
 
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var heatmapYearSelect = document.getElementById('heatmap_year');
+    var event = new Event('change');
+    heatmapYearSelect.dispatchEvent(event);
+});
+</script>

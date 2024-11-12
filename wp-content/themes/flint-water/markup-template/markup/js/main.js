@@ -684,7 +684,7 @@ function initCalendarHeatmap() {
 		
 
         // Initial paint for the default year
-        paintHeatmap('2010');
+        paintHeatmap('2014');
 
         // Navigation buttons
         const navButtonNext = item.querySelector('.heatmap_nav-button._next');
