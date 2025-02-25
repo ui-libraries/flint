@@ -745,7 +745,7 @@ a {
 	transition: var(--transition);
 }
 a:hover {
-	color: #ff7c52;
+	color: black;
 }
 
 table {
@@ -5099,7 +5099,7 @@ select.form-control {
 	   object-fit: cover;
 }
 .section_img {
-	margin-bottom: calc(clamp(60px, 7vw, 100px) * -1);
+	/* margin-bottom: calc(clamp(60px, 7vw, 100px) * -1); */
 }
 .section_img img {
 	width: 100%;

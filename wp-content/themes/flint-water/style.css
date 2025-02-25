@@ -9,6 +9,7 @@ Text Domain: am
 Tags: custom-menu, theme-options
 */
 
+/* Email Results */
 .email-result {
     border: 1px solid #ccc;
     padding: 10px;
@@ -24,7 +25,124 @@ Tags: custom-menu, theme-options
     margin: 5px 0;
 }
 
-#pagination button {
+/* Target the specific form by its ID */
+#email-search-form {
+    font-size: 1.25rem; /* Base font size (20px if root is 16px) */
+}
+
+/* Target all textual elements within the form */
+#email-search-form input,
+#email-search-form select,
+#email-search-form label,
+#email-search-form button,
+#email-search-form th,
+#email-search-form td {
+    font-size: 1.25rem; /* Consistent larger text */
+}
+
+/* Ensure placeholder text is also enlarged */
+#email-search-form input::placeholder {
+    font-size: 2rem;
+}
+
+/* Improve readability with better spacing */
+#email-search-form .form-control,
+#email-search-form select {
+    padding: 0.75rem; /* Increased padding for better touch targets */
+}
+
+/* Enhance button readability and clickability */
+#email-search-form .btn {
+    padding: 0.75rem 1.5rem; /* Larger padding */
+}
+
+/* Ensure table text is readable */
+#email-search-form table {
+    width: 100%;
+}
+
+/* Optional: Increase line height for better readability */
+#email-search-form * {
+    line-height: 1.5;
+}
+
+/* Ensure custom select dropdown (jcf) matches */
+#email-search-form .jcf-select {
+    font-size: 2rem;
+    padding: 0.75rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    #email-search-form {
+        font-size: 2rem; /* Slightly smaller but still accessible */
+    }
+    
+    #email-search-form .form-control,
+    #email-search-form select,
+    #email-search-form .btn {
+        font-size: 2rem;
+    }
+}
+
+/* Target the specific table by its ID */
+#emailTable {
+    font-size: 2rem; /* Base font size (20px if root is 16px) */
+}
+
+/* Target all textual elements within the table */
+#emailTable th,
+#emailTable td {
+    font-size: 2rem; /* Consistent larger text */
+    padding: 0.75rem; /* Increased padding for readability and touch targets */
+}
+
+/* Ensure table headers are prominent */
+#emailTable thead th {
+    font-size: 2rem;
+    font-weight: bold; /* Optional: Makes headers stand out */
+}
+
+/* Improve readability with better spacing */
+#emailTable {
+    width: 100%; /* Ensure table takes full width */
+    border-spacing: 0; /* Consistent spacing */
+}
+
+/* Style links within the table */
+#emailTable td a {
+    font-size: 1.25rem; /* Match text size */
+}
+
+/* Ensure icons are appropriately sized */
+#emailTable .fas.fa-file-pdf {
+    font-size: 2rem; /* Slightly larger icon for visibility */
+}
+
+/* Optional: Increase line height for better readability */
+#emailTable * {
+    line-height: 1.5;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    #emailTable {
+        font-size: 1.125rem; /* Slightly smaller but still accessible */
+    }
+    
+    #emailTable th,
+    #emailTable td {
+        font-size: 1.125rem;
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+    
+    #emailTable .fas.fa-file-pdf {
+        font-size: 1.75rem; /* Adjust icon size */
+    }
+}
+
+/* Pagination Button */
+.button {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
@@ -39,3 +157,28 @@ Tags: custom-menu, theme-options
     background-color: #0056b3;
 }
 
+/* Menu Styling */
+.menu ul {
+    background-color: #4795b0; /* Menu background color */
+    color: white; /* Default menu text color */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* Hover Effect for Menu Items */
+.menu ul li:hover {
+    color: black; /* Change text color on hover */
+    background-color: #ddeaf1; /* Optional: subtle background color change on hover */
+}
+
+/* Ensure Hover Styles Override Any Conflicts */
+.menu ul li:hover {
+    color: black !important;
+    background-color: #ddeaf1 !important;
+}

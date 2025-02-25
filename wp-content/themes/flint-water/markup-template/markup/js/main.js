@@ -749,7 +749,6 @@ function displayDataInTable(records) {
     const headerRow = document.createElement('tr');
 
     const columns = [
-        { header: 'ID', field: 'id' },
         { header: 'Date', field: 'timestamp' },
         { header: 'Sender', field: 'sender' },
         { header: 'Recipient', field: 'recipient_to' },
