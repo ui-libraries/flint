@@ -71,7 +71,7 @@ if (have_posts()) :
                                         <th>Sender</th>
                                         <th>Receiver</th>
                                         <th>Subject Line</th>
-                                        <th>Timestamp</th>
+                                        <th>Time</th>
                                         <th>PDF</th>
                                     </tr>
                                 </thead>

@@ -1,77 +1,98 @@
-<div class="container">
-  <div class="row mb-3">
-    <div class="col">
-      <h3>Search the Flint Water Crisis Email Archive</h3>
-      <form id="email-search-form">
-        <table id="searchTable" class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Search For 
-                <td colspan="2">
-                  <button id="addRow" type="button" class="btn btn-primary">Add Search Field</button>
-                </td>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="searchRow">
-              <td><input type="text" placeholder="Enter search term..." class="form-control" /></td>
-              <td>
-                <select class="form-control">
-                  <option value="sender/receiver">Sender/Receiver</option>
-                  <option value="subject">Subject Line</option>
-                  <option value="keyword">Keyword</option>
-                </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <label for="min">Minimum date:</label>
-            <input type="text" id="min" name="min" class="form-control" placeholder="2011-01-01">
-          </div>
-          <div class="col-md-6">
-            <label for="max">Maximum date:</label>
-            <input type="text" id="max" name="max" class="form-control" placeholder="2020-01-01">
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Search Email</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col">
+          <h3>Search the Flint Water Crisis Email Archive</h3>
+          <form id="email-search-form">
+            <table id="searchTable" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Search For 
+                    <td colspan="2">
+                      <button id="addRow" type="button" class="btn btn-primary">Add Search Field</button>
+                    </td>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="searchRow">
+                  <td><input type="text" placeholder="Enter search term..." class="form-control" /></td>
+                  <td>
+                    <select class="form-control">
+                      <option value="sender/receiver">Sender/Receiver</option>
+                      <option value="subject">Subject Line</option>
+                      <option value="keyword">Keyword</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="min">Minimum date:</label>
+                <input type="text" id="min" name="min" class="form-control" placeholder="2011-01-01">
+              </div>
+              <div class="col-md-6">
+                <label for="max">Maximum date:</label>
+                <input type="text" id="max" name="max" class="form-control" placeholder="2020-01-01">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                <button id="searchBtn" type="submit" class="btn btn-success">Search</button>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <div class="col">
-            <button id="searchBtn" type="submit" class="btn btn-success">Search</button>
-          </div>
+      <div class="row mb-3">
+        <div class="col">
+          <canvas id="emailChart" width="400" height="200"></canvas>
         </div>
-      </form>
-    </div>
-  </div>
+      </div>
 
-  <div class="row mb-3">
-    <div class="col">
-      <canvas id="emailChart" width="400" height="200"></canvas>
+      <div class="row">
+        <div class="col">
+          <table id="emailTable" class="display table table-bordered">
+            <thead style="display: none;"> <!-- Initially hidden -->
+              <tr>
+                <th>Sender</th>
+                <th>Receiver</th>
+                <th>Subject Line</th>
+                <th>Time</th>
+                <th>PDF</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Data will go here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col">
-      <table id="emailTable" class="display table table-bordered">
-        <thead>
-          <tr>
-            <th>Sender</th>
-            <th>Receiver</th>
-            <th>Subject Line</th>
-            <th>Timestamp</th>
-            <th>PDF</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Data will go here -->
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div id="search-results" class="posts-text-grid"></div>
-<nav id="pagination" class="pagination _center"></nav>
+    <!-- Optional Bootstrap JS, and Popper.js before your other scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script src="js/bundle.js" charset="utf-8"></script>
+  </body>
+</html>

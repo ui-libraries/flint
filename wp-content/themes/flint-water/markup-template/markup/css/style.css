@@ -4840,48 +4840,84 @@ select.form-control {
 }
 
 .pagination {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	-webkit-box-pack: start;
-	    -ms-flex-pack: start;
-	        justify-content: flex-start;
-	gap: 15px;
-	font-weight: 500;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    gap: 20px; /* Increased from 15px */
+    font-weight: 500;
+    font-size: 18px; /* Added: bigger text */
 }
+
 .pagination._center {
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
+
 .pagination_label {
-	color: var(--grey);
+    color: var(--grey);
 }
+
 .pagination_list {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
-	gap: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 5px; /* Increased from 0 for spacing */
 }
+
 .pagination_link {
-	color: inherit;
-	display: inline-block;
-	padding: 5px 10px;
-	line-height: 1;
-	text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    padding: 10px 15px; /* Increased from 5px 10px */
+    line-height: 1;
+    text-decoration: none;
+    border: 1px solid #ccc; /* Added: defines button edges */
+    border-radius: 4px; /* Added: slight rounding */
 }
+
 .pagination_link:hover,
 .pagination_link._active {
-	color: var(--orange);
-	text-decoration: none;
+    color: var(--orange);
+    text-decoration: none;
+    background-color: #f5f5f5; /* Added: hover/active bg */
+}
+
+/* New classes from script */
+.current {
+    color: var(--orange);
+    background-color: #ffe5cc; /* Light orange bg for active */
+    padding: 10px 15px;
+    border: 1px solid var(--orange);
+    border-radius: 4px;
+}
+
+.disabled {
+    color: #ccc;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    pointer-events: none; /* Disable clicks */
+}
+
+.prev, .next {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.prev:hover, .next:hover {
+    color: var(--orange);
+    background-color: #f5f5f5;
 }
 
 .pdf-viewer_container {

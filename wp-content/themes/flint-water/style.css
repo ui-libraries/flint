@@ -9,176 +9,209 @@ Text Domain: am
 Tags: custom-menu, theme-options
 */
 
-/* Email Results */
-.email-result {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
+/* Reset Root Font Size (Highest Priority) */
+html {
+    font-size: 16px !important; /* Force 16px root */
+    -webkit-text-size-adjust: 100% !important; /* Prevent mobile scaling */
 }
 
-.email-result h3 {
-    margin-top: 0;
+:root {
+    font-size: 16px !important; /* Ensure consistency */
 }
 
-.email-result p {
-    margin: 5px 0;
-}
-
-/* Target the specific form by its ID */
+/* Search Form (Bootstrap-Compatible, 16px) */
 #email-search-form {
-    font-size: 1.25rem; /* Base font size (20px if root is 16px) */
+    font-size: 1rem !important; /* 16px, Bootstrap default */
 }
 
-/* Target all textual elements within the form */
 #email-search-form input,
 #email-search-form select,
 #email-search-form label,
-#email-search-form button,
-#email-search-form th,
-#email-search-form td {
-    font-size: 1.25rem; /* Consistent larger text */
+#email-search-form button {
+    font-size: 1rem !important; /* 16px */
 }
 
-/* Ensure placeholder text is also enlarged */
 #email-search-form input::placeholder {
-    font-size: 2rem;
+    font-size: 1rem !important;
 }
 
-/* Improve readability with better spacing */
 #email-search-form .form-control,
 #email-search-form select {
-    padding: 0.75rem; /* Increased padding for better touch targets */
+    padding: 0.375rem 0.75rem !important; /* Bootstrap, ~6px 12px */
 }
 
-/* Enhance button readability and clickability */
 #email-search-form .btn {
-    padding: 0.75rem 1.5rem; /* Larger padding */
+    padding: 0.375rem 0.75rem !important;
 }
 
-/* Ensure table text is readable */
 #email-search-form table {
     width: 100%;
 }
 
-/* Optional: Increase line height for better readability */
+#searchTable {
+    margin-top: 40px;
+}
+
 #email-search-form * {
-    line-height: 1.5;
+    line-height: 1.5 !important;
 }
 
-/* Ensure custom select dropdown (jcf) matches */
-#email-search-form .jcf-select {
-    font-size: 2rem;
-    padding: 0.75rem;
-}
-
-/* Media query for smaller screens */
 @media (max-width: 768px) {
-    #email-search-form {
-        font-size: 2rem; /* Slightly smaller but still accessible */
+    #email-search-form,
+    #email-search-form input,
+    #email-search-form select,
+    #email-search-form .btn {
+        font-size: 0.875rem !important; /* 14px on mobile */
     }
-    
     #email-search-form .form-control,
     #email-search-form select,
     #email-search-form .btn {
-        font-size: 2rem;
+        padding: 0.25rem 0.5rem !important; /* Adjust padding for mobile */
     }
 }
 
-/* Target the specific table by its ID */
-#emailTable {
-    font-size: 2rem; /* Base font size (20px if root is 16px) */
+/* Email Table Content (Original Size, 1.25rem = 20px) */
+#emailTable tbody th,
+#emailTable tbody td {
+    font-size: 1.25rem !important; /* 20px, matches standalone */
+    padding: 0.75rem !important; /* ~12px, fits 20px text */
 }
 
-/* Target all textual elements within the table */
-#emailTable th,
-#emailTable td {
-    font-size: 2rem; /* Consistent larger text */
-    padding: 0.75rem; /* Increased padding for readability and touch targets */
-}
-
-/* Ensure table headers are prominent */
 #emailTable thead th {
-    font-size: 2rem;
-    font-weight: bold; /* Optional: Makes headers stand out */
+    font-size: 1.25rem !important; /* 20px for headers */
+    font-weight: bold;
 }
 
-/* Improve readability with better spacing */
 #emailTable {
-    width: 100%; /* Ensure table takes full width */
-    border-spacing: 0; /* Consistent spacing */
+    width: 100%;
+    border-spacing: 0;
 }
 
-/* Style links within the table */
-#emailTable td a {
-    font-size: 1.25rem; /* Match text size */
+#emailTable tbody td a {
+    font-size: 1.25rem !important;
 }
 
-/* Ensure icons are appropriately sized */
 #emailTable .fas.fa-file-pdf {
-    font-size: 2rem; /* Slightly larger icon for visibility */
+    font-size: 1.5rem !important; /* Smaller icon for 20px text */
 }
 
-/* Optional: Increase line height for better readability */
-#emailTable * {
-    line-height: 1.5;
+#emailTable tbody * {
+    line-height: 1.5 !important;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 768px) {
-    #emailTable {
-        font-size: 1.125rem; /* Slightly smaller but still accessible */
+    #emailTable tbody th,
+    #emailTable tbody td {
+        font-size: 1rem !important; /* 16px on mobile */
+        padding: 0.5rem !important;
     }
-    
-    #emailTable th,
-    #emailTable td {
-        font-size: 1.125rem;
-        padding: 0.5rem; /* Adjust padding for smaller screens */
-    }
-    
     #emailTable .fas.fa-file-pdf {
-        font-size: 1.75rem; /* Adjust icon size */
+        font-size: 1.25rem !important;
     }
 }
 
-/* Pagination Button */
-.button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* DataTables Controls (Match Standalone Exactly, 16px, Ultimate Override) */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info {
+    font-size: 1rem !important; /* 16px, matches standalone */
+    padding: 0.5rem 0 !important; /* ~8px, compact but readable */
+    box-sizing: border-box !important; /* Ensure no overflow */
+    line-height: 1 !important; /* Prevent line height issues */
+    position: relative !important; /* Ensure proper positioning */
 }
 
-#pagination button:hover {
-    background-color: #0056b3;
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
+    font-size: 1rem !important; /* 16px */
+    padding: 0.5rem 1rem !important; /* ~8px 16px, matches standalone */
+    margin: 0 5px !important;
+    width: auto !important;
+    min-width: 50px !important; /* Dropdown fit */
+    box-sizing: border-box !important; /* Prevent overflow */
+    border: 1px solid #ced4da !important; /* Bootstrap input border */
+    line-height: 1 !important; /* Prevent line height issues */
+    position: relative !important; /* Ensure proper positioning */
 }
 
-/* Menu Styling */
+.dataTables_wrapper .dataTables_filter input {
+    width: 200px !important; /* Clean search box */
+    box-sizing: border-box !important; /* Ensure fixed width */
+    border: 1px solid #ced4da !important; /* Bootstrap input border */
+    line-height: 1 !important; /* Prevent line height issues */
+    position: relative !important; /* Ensure proper positioning */
+}
+
+/* DataTables Pagination (Match Standalone Exactly, 16px, Bootstrap-Style, Ultimate Override) */
+.dataTables_wrapper .dataTables_paginate {
+    display: block !important; /* Use DataTables’ pagination */
+    font-size: 1rem !important;
+    box-sizing: border-box !important;
+    line-height: 1 !important; /* Prevent line height issues */
+    position: relative !important; /* Ensure proper positioning */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0.5rem 1rem !important; /* ~8px 16px, matches standalone */
+    margin: 0 2px !important;
+    box-sizing: border-box !important; /* Ensure no overflow */
+    border: 1px solid #ced4da !important; /* Bootstrap button border */
+    background-color: #fff !important;
+    color: #007bff !important;
+    text-decoration: none !important;
+    line-height: 1 !important; /* Prevent line height issues */
+    position: relative !important; /* Ensure proper positioning */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: #007bff !important;
+    color: white !important;
+    border: 1px solid #007bff !important;
+    box-sizing: border-box !important;
+    line-height: 1 !important; /* Prevent line height issues */
+    position: relative !important; /* Ensure proper positioning */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #f5f5f5 !important;
+    color: #0056b3 !important;
+    box-sizing: border-box !important;
+    line-height: 1 !important; /* Prevent line height issues */
+    position: relative !important; /* Ensure proper positioning */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    color: #ccc !important;
+    pointer-events: none !important;
+    box-sizing: border-box !important;
+    border: 1px solid #ced4da !important;
+    line-height: 1 !important; /* Prevent line height issues */
+    position: relative !important; /* Ensure proper positioning */
+}
+
+/* Menu Styling (Default Size, 16px) */
 .menu ul {
-    background-color: #4795b0; /* Menu background color */
-    color: white; /* Default menu text color */
+    background-color: #4795b0;
+    color: white;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .menu ul li {
-    padding: 10px 15px;
+    font-size: 1rem !important; /* 16px, default */
+    padding: 10px 15px !important;
     cursor: pointer;
 }
 
-/* Hover Effect for Menu Items */
 .menu ul li:hover {
-    color: black; /* Change text color on hover */
-    background-color: #ddeaf1; /* Optional: subtle background color change on hover */
+    color: black;
+    background-color: #ddeaf1;
 }
 
-/* Ensure Hover Styles Override Any Conflicts */
-.menu ul li:hover {
-    color: black !important;
-    background-color: #ddeaf1 !important;
+@media (max-width: 768px) {
+    .menu ul li {
+        font-size: 0.875rem !important; /* 14px on mobile */
+        padding: 8px 12px !important;
+    }
 }
