@@ -9,9 +9,9 @@ Text Domain: am
 Tags: custom-menu, theme-options
 */
 
-/* Reset Root Font Size (Highest Priority) */
-html {
-    font-size: 16px !important; /* Force 16px root */
+/* Reset Root Font Size (Highest Priority for WordPress) */
+html, body {
+    font-size: 16px !important; /* Force 16px root, overriding theme */
     -webkit-text-size-adjust: 100% !important; /* Prevent mobile scaling */
 }
 
@@ -19,7 +19,7 @@ html {
     font-size: 16px !important; /* Ensure consistency */
 }
 
-/* Search Form (Bootstrap-Compatible, 16px) */
+/* Search Form (Bootstrap-Compatible, 16px, WordPress-Specific) */
 #email-search-form {
     font-size: 1rem !important; /* 16px, Bootstrap default */
 }
@@ -38,10 +38,12 @@ html {
 #email-search-form .form-control,
 #email-search-form select {
     padding: 0.375rem 0.75rem !important; /* Bootstrap, ~6px 12px */
+    box-sizing: border-box !important; /* Ensure no overflow */
 }
 
 #email-search-form .btn {
     padding: 0.375rem 0.75rem !important;
+    box-sizing: border-box !important; /* Ensure no overflow */
 }
 
 #email-search-form table {
@@ -54,6 +56,7 @@ html {
 
 #email-search-form * {
     line-height: 1.5 !important;
+    box-sizing: border-box !important; /* Ensure consistency */
 }
 
 @media (max-width: 768px) {
@@ -75,6 +78,7 @@ html {
 #emailTable tbody td {
     font-size: 1.25rem !important; /* 20px, matches standalone */
     padding: 0.75rem !important; /* ~12px, fits 20px text */
+    box-sizing: border-box !important; /* Ensure no overflow */
 }
 
 #emailTable thead th {
@@ -85,6 +89,7 @@ html {
 #emailTable {
     width: 100%;
     border-spacing: 0;
+    box-sizing: border-box !important; /* Ensure no overflow */
 }
 
 #emailTable tbody td a {
@@ -97,6 +102,7 @@ html {
 
 #emailTable tbody * {
     line-height: 1.5 !important;
+    box-sizing: border-box !important; /* Ensure consistency */
 }
 
 @media (max-width: 768px) {
@@ -110,83 +116,113 @@ html {
     }
 }
 
-/* DataTables Controls (Match Standalone Exactly, 16px, Ultimate Override) */
-.dataTables_wrapper .dataTables_length,
-.dataTables_wrapper .dataTables_filter,
-.dataTables_wrapper .dataTables_info {
+#emailTable_wrapper .dataTables_length {
+    display: flex !important; /* Align label and dropdown on the same line */
+    align-items: center !important; /* Vertically center items */
+    gap: 0.5rem !important; /* Space between label and dropdown */
+    flex-wrap: nowrap !important; /* Prevent wrapping */
+    box-sizing: border-box !important; /* Ensure no overflow */
+    height: 2.25rem !important; /* Match input/dropdown height for consistency */
+    padding-bottom: 1rem;
+}
+
+#emailTable_wrapper .dataTables_length label,
+#emailTable_wrapper .dataTables_length label.form-label,
+#emailTable_wrapper .dataTables_length label.form-inline {
     font-size: 1rem !important; /* 16px, matches standalone */
-    padding: 0.5rem 0 !important; /* ~8px, compact but readable */
+    color: #212529 !important; /* Dark text for readability */
+    margin: 0 !important; /* Remove default margins */
+    padding: 0 !important; /* Remove default padding */
+    line-height: 2.25rem !important; /* Match input/dropdown height for perfect centering */
+    white-space: nowrap !important; /* Prevent label wrapping */
     box-sizing: border-box !important; /* Ensure no overflow */
-    line-height: 1 !important; /* Prevent line height issues */
-    position: relative !important; /* Ensure proper positioning */
+    display: inline-flex !important; /* Ensure inline alignment */
+    align-self: center !important; /* Center label vertically with dropdown */
 }
 
-.dataTables_wrapper .dataTables_length select,
-.dataTables_wrapper .dataTables_filter input {
-    font-size: 1rem !important; /* 16px */
-    padding: 0.5rem 1rem !important; /* ~8px 16px, matches standalone */
-    margin: 0 5px !important;
-    width: auto !important;
-    min-width: 50px !important; /* Dropdown fit */
+#emailTable_wrapper .dataTables_length select,
+#emailTable_wrapper .dataTables_length select.form-control,
+#emailTable_wrapper .dataTables_length select.input-sm {
+    font-size: 1rem !important; /* 16px, matches standalone */
+    padding: 0.25rem 0.5rem !important; /* ~4px 8px, compact but readable */
     box-sizing: border-box !important; /* Prevent overflow */
-    border: 1px solid #ced4da !important; /* Bootstrap input border */
+    border: 1px solid #ced4da !important; /* Bootstrap input border for consistency */
     line-height: 1 !important; /* Prevent line height issues */
     position: relative !important; /* Ensure proper positioning */
+    background-color: #fff !important; /* White background */
+    color: #212529 !important; /* Dark text for readability */
+    border-radius: 0.25rem !important; /* Slight rounding for modern look */
+    outline: none !important; /* Remove default outline */
+    height: 2.25rem !important; /* Slightly taller dropdown */
+    min-width: 50px !important; /* Ensure dropdown fits content */
 }
 
-.dataTables_wrapper .dataTables_filter input {
-    width: 200px !important; /* Clean search box */
-    box-sizing: border-box !important; /* Ensure fixed width */
-    border: 1px solid #ced4da !important; /* Bootstrap input border */
-    line-height: 1 !important; /* Prevent line height issues */
-    position: relative !important; /* Ensure proper positioning */
-}
-
-/* DataTables Pagination (Match Standalone Exactly, 16px, Bootstrap-Style, Ultimate Override) */
-.dataTables_wrapper .dataTables_paginate {
-    display: block !important; /* Use DataTables’ pagination */
-    font-size: 1rem !important;
-    box-sizing: border-box !important;
-    line-height: 1 !important; /* Prevent line height issues */
-    position: relative !important; /* Ensure proper positioning */
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-    padding: 0.5rem 1rem !important; /* ~8px 16px, matches standalone */
-    margin: 0 2px !important;
+#emailTable_wrapper .dataTables_filter {
+    display: flex !important; /* Align label and input on the same line */
+    align-items: center !important; /* Vertically center items */
+    gap: 0.5rem !important; /* Space between label and input */
+    flex-wrap: nowrap !important; /* Prevent wrapping */
     box-sizing: border-box !important; /* Ensure no overflow */
-    border: 1px solid #ced4da !important; /* Bootstrap button border */
-    background-color: #fff !important;
-    color: #007bff !important;
-    text-decoration: none !important;
-    line-height: 1 !important; /* Prevent line height issues */
-    position: relative !important; /* Ensure proper positioning */
+    height: 2.25rem !important; /* Match input/dropdown height for consistency */
+    padding-bottom: 1rem;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-    background-color: #007bff !important;
-    color: white !important;
-    border: 1px solid #007bff !important;
-    box-sizing: border-box !important;
-    line-height: 1 !important; /* Prevent line height issues */
-    position: relative !important; /* Ensure proper positioning */
+#emailTable_wrapper .dataTables_filter label,
+#emailTable_wrapper .dataTables_filter label.form-label,
+#emailTable_wrapper .dataTables_filter label.form-inline {
+    font-size: 1rem !important; /* 16px, matches standalone */
+    color: #212529 !important; /* Dark text for readability */
+    margin: 0 !important; /* Remove default margins */
+    padding: 0 !important; /* Remove default padding */
+    line-height: 2.25rem !important; /* Match input/dropdown height for perfect centering */
+    white-space: nowrap !important; /* Prevent label wrapping */
+    box-sizing: border-box !important; /* Ensure no overflow */
+    display: inline-flex !important; /* Ensure inline alignment */
+    align-self: center !important; /* Center label vertically with input */
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    background-color: #f5f5f5 !important;
-    color: #0056b3 !important;
-    box-sizing: border-box !important;
+#emailTable_wrapper .dataTables_filter input,
+#emailTable_wrapper .dataTables_filter input.form-control,
+#emailTable_wrapper .dataTables_filter input.input-sm {
+    font-size: 1rem !important; /* 16px, matches standalone */
+    padding: 0.25rem 0.5rem !important; /* ~4px 8px, compact but readable */
+    width: 200px !important; /* Clean, fixed width */
+    box-sizing: border-box !important; /* Prevent overflow */
+    border: 1px solid #ced4da !important; /* Bootstrap input border for consistency */
     line-height: 1 !important; /* Prevent line height issues */
     position: relative !important; /* Ensure proper positioning */
+    background-color: #fff !important; /* White background */
+    color: #212529 !important; /* Dark text for readability */
+    border-radius: 0.25rem !important; /* Slight rounding for modern look */
+    outline: none !important; /* Remove default outline */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important; /* Smooth focus transition */
+    height: 2.25rem !important; /* Slightly taller input */
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
-    color: #ccc !important;
-    pointer-events: none !important;
-    box-sizing: border-box !important;
-    border: 1px solid #ced4da !important;
-    line-height: 1 !important; /* Prevent line height issues */
-    position: relative !important; /* Ensure proper positioning */
+#emailTable_wrapper .dataTables_filter input:focus,
+#emailTable_wrapper .dataTables_filter input.form-control:focus,
+#emailTable_wrapper .dataTables_filter input.input-sm:focus {
+    border-color: #80bdff !important; /* Blue border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important; /* Subtle focus shadow */
+    outline: 0 !important; /* Remove outline on focus */
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    text-align: center;
+    padding: 20px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.loading-spinner i {
+    font-size: 3rem; /* Large spinner */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Menu Styling (Default Size, 16px) */

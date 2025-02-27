@@ -4,16 +4,26 @@ jQuery(document).ready(function($) {
     const pageSize = 50; // Number of records per page
     let apiUrl = ''; // Base API URL
     let flintChart, table;
+    let allRecords = []; // Store all records
+
+    // Add loading spinner to HTML
+    $('#emailTable').before('<div id="loadingSpinner" class="loading-spinner" style="display: none;"><i class="fas fa-spinner fa-spin fa-3x"></i> Loading...</div>');
 
     function countEmailsPerDay(emails) {
         const counts = {};
+        
+        // Sort emails by timestamp (oldest to newest)
+        emails.sort((a, b) => a.timestamp - b.timestamp);
         
         emails.forEach(email => {
             const date = moment.unix(email.timestamp).format("YYYY-MM-DD");
             counts[date] = (counts[date] || 0) + 1;
         });
         
-        return counts;
+        // Sort dates chronologically (YYYY-MM-DD)
+        return Object.fromEntries(
+            Object.entries(counts).sort()
+        );
     }
 
     // New row template for search form
@@ -57,6 +67,7 @@ jQuery(document).ready(function($) {
         event.preventDefault();
         console.log("submitting form");
         page = 1; // Reset to first page
+        allRecords = []; // Reset all records
 
         let searchData = [];
         $('#searchTable .searchRow').each(function() {
@@ -82,19 +93,20 @@ jQuery(document).ready(function($) {
         };
 
         apiUrl = constructApiUrl(allData);
-        console.log('API URL:', apiUrl);
-
-        fetchData(apiUrl)
-            .then(response => {
-                renderResults(response);
-                renderChart(response);
+        $('#loadingSpinner').show(); // Show spinner before fetching
+        fetchAllPages(apiUrl)
+            .then(() => {
+                renderResults({ records: allRecords, results: allRecords.length });
+                renderChart({ records: allRecords });
+                $('#loadingSpinner').hide(); // Hide spinner after rendering
             })
             .catch(error => {
-                console.error('Failed to fetch data:', error);
+                console.error('Failed to fetch all data:', error);
+                $('#loadingSpinner').hide(); // Hide spinner on error
             });
     });
 
-    // Construct API URL
+    // Construct API URL (without page initially, but used per page in fetchAllPages)
     function constructApiUrl(params) {
         const baseApiUrl = "https://s-lib007.lib.uiowa.edu/flint/api/api.php/records/emails";
         const filters = [];
@@ -131,10 +143,37 @@ jQuery(document).ready(function($) {
             filters.push(`filter=timestamp,le,${toUnixTimestamp(params.maxDate)}`);
         }
 
-        return `${baseApiUrl}?${filters.join('&')}&order=id&page=${page},${pageSize}`;
+        return `${baseApiUrl}?${filters.join('&')}&order=id`; // Remove page for fetchAllPages to handle
     }
 
-    // Fetch data
+    // Fetch all pages until no more records
+    function fetchAllPages(baseUrl) {
+        return new Promise((resolve, reject) => {
+            let currentPage = 1;
+            const maxRecords = 10000;
+            const fetchPage = () => {
+                if (allRecords.length >= maxRecords) {
+                    resolve(); // Stop if max reached
+                    return;
+                }
+                const url = `${baseUrl}&page=${currentPage},${pageSize}`;
+                fetchData(url)
+                    .then(response => {
+                        if (response.records && response.records.length > 0) {
+                            allRecords = allRecords.concat(response.records);
+                            currentPage++;
+                            fetchPage(); // Fetch next page
+                        } else {
+                            resolve(); // No more records, done
+                        }
+                    })
+                    .catch(error => reject(error));
+            };
+            fetchPage(); // Start fetching
+        });
+    }
+
+    // Fetch data (unchanged, used by fetchAllPages)
     function fetchData(url) {
         return new Promise((resolve, reject) => {
             $.ajax({
@@ -170,9 +209,13 @@ jQuery(document).ready(function($) {
         if (response.records.length === 0 && page === 1) {
             resultsContainer.append('<tr><td colspan="5">No records found</td></tr>');
         } else {
+            // Sort records by timestamp (oldest to newest)
+            const sortedRecords = response.records.sort((a, b) => a.timestamp - b.timestamp);
+            
             // Show header only if there are records
             tableHeader.show();
-            response.records.forEach(record => {
+            resultsContainer.empty(); // Clear previous results
+            sortedRecords.forEach(record => {
                 let resultRow = `
                     <tr>
                         <td>${record.sender}</td>
@@ -184,12 +227,14 @@ jQuery(document).ready(function($) {
                 `;
                 resultsContainer.append(resultRow);
             });
+            // In renderResults, after table = $('#emailTable').DataTable(...)
             table = $('#emailTable').DataTable({
-                pageLength: pageSize, // Sync with API
+                pageLength: 50, // Sync with API
                 paging: true,
                 searching: true,
                 ordering: true,
-                info: true
+                info: true,
+                order: [[3, 'asc']]
             });
         }
     }
@@ -197,7 +242,7 @@ jQuery(document).ready(function($) {
     // Render chart
     function renderChart(results) {
         console.log('inside renderChart');
-        const emails = results.records;
+        const emails = results.records.sort((a, b) => a.timestamp - b.timestamp); // Sort emails chronologically
         const emailCounts = countEmailsPerDay(emails);
 
         const labels = Object.keys(emailCounts).map(date => moment(date).format("YYYY-MM-DD"));
