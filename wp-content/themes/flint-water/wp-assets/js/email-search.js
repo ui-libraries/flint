@@ -7,7 +7,8 @@ jQuery(document).ready(function($) {
     let allRecords = []; // Store all records
 
     // Add loading spinner to HTML
-    $('#emailTable').before('<div id="loadingSpinner" class="loading-spinner" style="display: none;"><i class="fas fa-spinner fa-spin fa-3x"></i> Loading...</div>');
+    // Add loading spinner to HTML
+    $('#email-search-form').before('<div id="loadingSpinner" class="loading-spinner" style="display: none;"><i class="fas fa-spinner fa-spin fa-3x"></i> Loading...</div>');
 
     function countEmailsPerDay(emails) {
         const counts = {};
