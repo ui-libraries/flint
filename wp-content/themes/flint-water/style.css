@@ -207,6 +207,109 @@ html, body {
     outline: 0 !important; /* Remove outline on focus */
 }
 
+/* Add Heatmap Table CSS (Copy of Email Table Styling) */
+#heatmapEmailTable_wrapper .dataTables_length {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-wrap: nowrap !important;
+    box-sizing: border-box !important;
+    height: 2.25rem !important;
+    padding-bottom: 1rem;
+}
+
+#heatmapEmailTable_wrapper .dataTables_length label,
+#heatmapEmailTable_wrapper .dataTables_length label.form-label,
+#heatmapEmailTable_wrapper .dataTables_length label.form-inline {
+    font-size: 1rem !important;
+    color: #212529 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 2.25rem !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-self: center !important;
+}
+
+#heatmapEmailTable_wrapper .dataTables_length select,
+#heatmapEmailTable_wrapper .dataTables_length select.form-control,
+#heatmapEmailTable_wrapper .dataTables_length select.input-sm {
+    font-size: 1rem !important;
+    padding: 0.25rem 0.5rem !important;
+    box-sizing: border-box !important;
+    border: 1px solid #ced4da !important;
+    line-height: 1 !important;
+    position: relative !important;
+    background-color: #fff !important;
+    color: #212529 !important;
+    border-radius: 0.25rem !important;
+    outline: none !important;
+    height: 2.25rem !important;
+    min-width: 50px !important;
+}
+
+#heatmapEmailTable_wrapper .dataTables_filter {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-wrap: nowrap !important;
+    box-sizing: border-box !important;
+    height: 2.25rem !important;
+    padding-bottom: 1rem;
+}
+
+#heatmapEmailTable_wrapper .dataTables_filter label,
+#heatmapEmailTable_wrapper .dataTables_filter label.form-label,
+#heatmapEmailTable_wrapper .dataTables_filter label.form-inline {
+    font-size: 1rem !important;
+    color: #212529 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 2.25rem !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-self: center !important;
+}
+
+#heatmapEmailTable_wrapper .dataTables_filter input,
+#heatmapEmailTable_wrapper .dataTables_filter input.form-control,
+#heatmapEmailTable_wrapper .dataTables_filter input.input-sm {
+    font-size: 1rem !important;
+    padding: 0.25rem 0.5rem !important;
+    width: 200px !important;
+    box-sizing: border-box !important;
+    border: 1px solid #ced4da !important;
+    line-height: 1 !important;
+    position: relative !important;
+    background-color: #fff !important;
+    color: #212529 !important;
+    border-radius: 0.25rem !important;
+    outline: none !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+    height: 2.25rem !important;
+}
+
+#heatmapEmailTable_wrapper .dataTables_filter input:focus,
+#heatmapEmailTable_wrapper .dataTables_filter input.form-control:focus,
+#heatmapEmailTable_wrapper .dataTables_filter input.input-sm:focus {
+    border-color: #80bdff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+    outline: 0 !important;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Container Margin */
+#email-table-container {
+    margin-top: 30px;
+}
+
 /* Loading Spinner */
 .loading-spinner {
     text-align: center;

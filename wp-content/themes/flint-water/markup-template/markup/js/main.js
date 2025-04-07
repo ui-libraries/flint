@@ -11,7 +11,7 @@ jQuery(function () {
 	isElementExist(".pdf-viewer", initPDFReader);
 	isElementExist(".calendar-timeline", initCalendarTimeline);
 	isElementExist(".range-datepicker", initRangeDatepicker);
-	isElementExist("#heatmap", initCalendarHeatmap);
+	//isElementExist("#heatmap", initCalendarHeatmap);
 });
 
 jQuery(window).on("load", () => {
@@ -581,6 +581,7 @@ function initRangeDatepicker() {
 	})
 }
 
+/*
 function initCalendarHeatmap() {
     const heatmapElement = document.querySelectorAll('.heatmap');
 
@@ -807,7 +808,7 @@ function displayDataInTable(records) {
     container.appendChild(table);
 }
 
-
+*/
 
 
 
